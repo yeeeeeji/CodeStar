@@ -1,7 +1,9 @@
+import Image from 'next/image';
+
 export default function CarouselSlide() {
   return (
     <div className='w-full flex-shrink-0 relative h-full'>
-      <img src='/images/main-page/carousel-image.png' alt='첫 번째 슬라이드' className='w-full h-full object-cover' />
+      <Image src='/images/main-page/carousel-image.png' alt='첫 번째 슬라이드' fill className='object-cover' priority />
       <div className='absolute inset-0 bg-black/40 flex items-center justify-start pl-20 sm:pl-28 md:pl-40 lg:pl-56 xl:pl-68'>
         <div className='text-start text-white max-w-4xl'>
           <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold mb-6 leading-tight whitespace-nowrap'>
