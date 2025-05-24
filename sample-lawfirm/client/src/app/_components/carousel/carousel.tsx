@@ -72,7 +72,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className='relative w-screen h-screen overflow-hidden'>
+    <div className='relative w-full h-screen overflow-hidden'>
       <div
         className={`flex h-full ${isTransitioning ? 'transition-transform duration-1000 ease-in-out' : ''}`}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
