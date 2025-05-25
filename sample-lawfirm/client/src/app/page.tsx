@@ -1,6 +1,7 @@
-import BusinessStatsSection from './_components/business-stats';
-import Carousel from './_components/carousel';
-import PracticeArea from './_components/work-area-section';
+import BusinessStatsSection from "./_components/business-stats/business-stats-section";
+import Carousel from "./_components/carousel/carousel";
+import PracticeArea from "./_components/work-area-section";
+import CaseSection from "./_components/case-section/case-section";
 
 export default function Home() {
   return (
@@ -11,6 +12,8 @@ export default function Home() {
       <BusinessStatsSection />
       {/* 업무분야 */}
       <PracticeArea />
+      {/* 업무사례 */}
+      <CaseSection />
     </div>
   );
 }
