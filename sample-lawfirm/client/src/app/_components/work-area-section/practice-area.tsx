@@ -9,32 +9,32 @@ export default function PracticeArea() {
       details: ['강간, 강제추행, 아동성추행', '카메라촬영, 성매매']
     },
     {
-      title: '마약범죄',
-      details: ['마약 제조, 판매, 사용', '대마초, 메스암페타민']
-    },
-    {
-      title: '경제범죄',
-      details: ['사기, 횡령, 배임', '금융사기, 보험사기']
-    },
-    {
-      title: '폭력범죄',
-      details: ['상해, 폭행, 협박', '특수폭행, 집단폭행']
-    },
-    {
       title: '교통범죄',
-      details: ['음주운전, 무면허운전', '교통사고, 뺑소니']
+      details: ['음주운전, 무면허운전', '12대 중과실 교통사고고']
     },
     {
-      title: '재산범죄',
-      details: ['절도, 강도, 손괴', '주거침입, 업무방해']
+      title: '부동산',
+      details: ['명도소송, 공사대금', '불법하도급, 지역주택조합']
     },
     {
-      title: '공직범죄',
-      details: ['뇌물수수, 직권남용', '공무집행방해']
+      title: '상속분쟁',
+      details: ['상속재산분할, 상속포기', '유류분반환청구인']
     },
     {
-      title: '기타범죄',
-      details: ['명예훼손, 모욕', '스토킹, 가정폭력']
+      title: '이혼/가사',
+      details: ['이혼, 재산분할, 양육권', '친권, 입양, 파양양']
+    },
+    {
+      title: '회생파산',
+      details: ['개인회생/파산', '법인회생/파산']
+    },
+    {
+      title: '경제/일반',
+      details: ['사기, 횡령, 모욕', '상해, 폭행, 마약']
+    },
+    {
+      title: '기업법무',
+      details: ['기업자문, 기업컨설팅', '계약서검토, 정관작성성']
     }
   ];
 
@@ -44,7 +44,6 @@ export default function PracticeArea() {
         <WorkAreaTitle title='업무분야' position='center' />
       </div>
 
-      {/* PC/Tablet */}
       <div
         className='
           hidden sm:grid 
@@ -59,7 +58,6 @@ export default function PracticeArea() {
         ))}
       </div>
 
-      {/* Mobile */}
       <div className='sm:hidden overflow-x-auto'>
         <div className='flex space-x-4 pl-2'>
           {practiceAreas.map((area, index) => (

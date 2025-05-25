@@ -7,7 +7,7 @@ export default function Home() {
     <div>
       {/* 화면 맨 위 캐러셀 */}
       <Carousel />
-      {/* 숫자 현황 부분분 */}
+      {/* 숫자 현황 부분 */}
       <BusinessStatsSection />
       {/* 업무분야 */}
       <PracticeArea />
