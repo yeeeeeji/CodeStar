@@ -20,7 +20,7 @@ export default function WorkAreaTitle({ title, position = 'left', fontSize = 40 
   return (
     <div className='inline-block'>
       <div className={`flex ${getSquarePosition()} mb-2`}>
-        <div className='w-4 h-4 border border-gray-900' style={{ borderWidth: '1.5px' }}></div>
+        <div className='w-4 h-4 border border-codestar-black' style={{ borderWidth: '1.5px' }}></div>
       </div>
       <p className='font-semibold' style={{ fontSize: `${fontSize}px` }}>
         {title}
