@@ -35,7 +35,7 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
       {details.map((detail, index) => (
         <p
           key={index}
-          className='text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] font-medium relative z-10'
+          className='text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] relative z-10'
         >
           {detail}
         </p>
