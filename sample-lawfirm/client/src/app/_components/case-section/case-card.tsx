@@ -8,10 +8,10 @@ interface CaseCardProps {
 export default function CaseCard({ title, content }: CaseCardProps) {
   return (
     <div
-      className={`px-[65px] py-[70px] border border-codestar-gray justify-items-start grid gap-8`}
+      className={`px-[70px] py-[75px] border border-codestar-gray justify-items-start grid gap-8`}
     >
-      <div className="text-[20px]">{title}</div>
-      <div className="text-[20px] card-content">{content}</div>
+      <div className="text-[24px]">{title}</div>
+      <div className="text-[24px] card-content">{content}</div>
       <button className="border px-8 py-2 sm:px-12 sm:py-2.5 md:px-16 md:py-3 text-sm md:text-base lg:text-lg hover:bg-black hover:text-white transition-colors duration-300">
         자세히보기
       </button>
