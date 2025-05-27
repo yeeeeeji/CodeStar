@@ -26,13 +26,13 @@ export default function CaseSection() {
   return (
     <div className="flex justify-center my-[180px]">
       <div className="w-[1440px]">
-        <div className="flex justify-between h-[70px] mb-[60px]">
+        <div className="grid grid-cols-3 justify-between mb-[60px]">
           <WorkAreaTitle title="업무사례" />
 
           {/* 검색 */}
           <Form
             action={""}
-            className={`flex justify-between w-[800px] border border-codestar-gray rounded-xl pr-[15px]`}
+            className={`col-span-2 flex justify-between w-[962px] border border-codestar-gray rounded-2xl pr-[15px]`}
           >
             <input
               name="query"
@@ -41,9 +41,9 @@ export default function CaseSection() {
             />
             <button type="submit">
               <MagnifyingGlassIcon
-                className="size-7 ml-[15px]"
+                className="size-11 my-[26px] mr-[25px] ml-[15px]"
                 color={colors.codestarGray}
-                strokeWidth={2.5}
+                strokeWidth={3}
               />
             </button>
           </Form>
