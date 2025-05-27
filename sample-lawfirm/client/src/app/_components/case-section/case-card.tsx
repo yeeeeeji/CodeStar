@@ -5,12 +5,10 @@ interface CaseCardProps {
   content: string;
 }
 
-const cs_gray = "#BABABA";
-
 export default function CaseCard({ title, content }: CaseCardProps) {
   return (
     <div
-      className={`px-[65px] py-[70px] border border-[${cs_gray}] justify-items-start grid gap-8`}
+      className={`px-[65px] py-[70px] border border-codestar-gray justify-items-start grid gap-8`}
     >
       <div className="text-[20px]">{title}</div>
       <div className="text-[20px] card-content">{content}</div>

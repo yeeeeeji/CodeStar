@@ -1,8 +1,7 @@
 import Form from "next/form";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import CaseCard from "./case-card";
-
-const cs_gray = "#BABABA";
+import { colors } from "@/constants/colors";
 
 const cases = [
   {
@@ -38,7 +37,7 @@ export default function CaseSection() {
           {/* 검색 */}
           <Form
             action={""}
-            className={`flex justify-between w-[800px] border border-[${cs_gray}] rounded-xl py-[20px] pl-[25px] pr-[15px]`}
+            className={`flex justify-between w-[800px] border border-codestar-gray rounded-xl py-[20px] pl-[25px] pr-[15px]`}
           >
             <input
               name="query"
@@ -48,7 +47,7 @@ export default function CaseSection() {
             <button type="submit">
               <MagnifyingGlassIcon
                 className="size-7 ml-[15px]"
-                color={cs_gray}
+                color={colors.codestarGray}
                 strokeWidth={2.5}
               />
             </button>
