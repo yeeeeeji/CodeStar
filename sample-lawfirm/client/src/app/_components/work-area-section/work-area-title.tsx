@@ -1,3 +1,6 @@
+import { colors } from '@/constants/colors';
+import { BriefcaseIcon } from '@heroicons/react/20/solid';
+
 interface TitleProps {
   title: string;
   position?: 'left' | 'center' | 'right';
@@ -19,8 +22,8 @@ export default function WorkAreaTitle({ title, position = 'left', fontSize = 40 
 
   return (
     <div className='inline-block'>
-      <div className={`flex ${getSquarePosition()} mb-2`}>
-        <div className='w-4 h-4 border border-codestar-black' style={{ borderWidth: '1.5px' }}></div>
+      <div className={`flex ${getSquarePosition()} mb-[20px]`}>
+        <BriefcaseIcon className='size-8' color={colors.gray700} />
       </div>
       <p className='font-bold' style={{ fontSize: `${fontSize}px` }}>
         {title}
