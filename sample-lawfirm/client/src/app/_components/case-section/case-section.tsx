@@ -2,6 +2,7 @@ import Form from "next/form";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import CaseCard from "./case-card";
 import { colors } from "@/constants/colors";
+import WorkAreaTitle from "../work-area-section/work-area-title";
 
 const cases = [
   {
@@ -24,31 +25,25 @@ const cases = [
 export default function CaseSection() {
   return (
     <div className="flex justify-center my-[180px]">
-      <div className="w-[1400px]">
-        <div className="flex justify-between h-[70px] mb-[60px]">
-          <div className="flex flex-col justify-between">
-            <div
-              className="w-4 h-4 border border-gray-900"
-              style={{ borderWidth: "2px" }}
-            ></div>
-            <div className="h-auto text-[32px] font-semibold">업무사례</div>
-          </div>
+      <div className="w-[1440px]">
+        <div className="grid grid-cols-3 justify-between mb-[60px]">
+          <WorkAreaTitle title="업무사례" />
 
           {/* 검색 */}
           <Form
             action={""}
-            className={`flex justify-between w-[800px] border border-codestar-gray rounded-xl py-[20px] pl-[25px] pr-[15px]`}
+            className={`col-span-2 flex justify-between w-[962px] border border-codestar-gray rounded-2xl pr-[15px]`}
           >
             <input
               name="query"
               placeholder="코드별 사건사례를 검색해보세요."
-              className="grow outline-none text-[18px]"
+              className="grow outline-none text-[24px] my-[26px] ml-[25px]"
             />
             <button type="submit">
               <MagnifyingGlassIcon
-                className="size-7 ml-[15px]"
+                className="size-11 my-[26px] mr-[25px] ml-[15px]"
                 color={colors.codestarGray}
-                strokeWidth={2.5}
+                strokeWidth={3}
               />
             </button>
           </Form>
