@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -6,6 +6,7 @@
 
   --codestar-black: #121212;
   --codestar-dark-navy: #2d3648;
+  --codestar-gray: #bababa;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
 
   --color-codestar-black: var(--codestar-black);
   --color-codestar-dark-navy: var(--codestar-dark-navy);
+  --color-codestar-gray: var(--codestar-gray);
 }
 
 @media (prefers-color-scheme: dark) {
