@@ -1,8 +1,9 @@
-import BusinessStatsSection from './_components/business-stats/business-stats-section';
-import Carousel from './_components/carousel/carousel';
-import PracticeArea from './_components/work-area-section';
-import CaseSection from './_components/case-section/case-section';
-import MainPageBottomHeroSection from './_components/main-page-hero-section/main-page-bottom-hero-section';
+import BusinessStatsSection from "./_components/business-stats/business-stats-section";
+import Carousel from "./_components/carousel/carousel";
+import PracticeArea from "./_components/work-area-section";
+import CaseSection from "./_components/case-section/case-section";
+import MainPageBottomHeroSection from "./_components/main-page-hero-section/main-page-bottom-hero-section";
+import MemberIntroSection from "./_components/member-intro-section/member-intro-section";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
       <CaseSection />
       {/* 하단 자세히보기 */}
       <MainPageBottomHeroSection />
+      {/* 구성원소개 */}
+      <MemberIntroSection />
     </div>
   );
 }
