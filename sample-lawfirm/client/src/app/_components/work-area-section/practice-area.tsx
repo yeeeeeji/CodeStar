@@ -10,7 +10,7 @@ export default function PracticeArea() {
     },
     {
       title: '교통범죄',
-      details: ['음주운전, 무면허운전', '12대 중과실 교통사고고']
+      details: ['음주운전, 무면허운전', '12대 중과실 교통사고']
     },
     {
       title: '부동산',
@@ -22,7 +22,7 @@ export default function PracticeArea() {
     },
     {
       title: '이혼/가사',
-      details: ['이혼, 재산분할, 양육권', '친권, 입양, 파양양']
+      details: ['이혼, 재산분할, 양육권', '친권, 입양, 파양']
     },
     {
       title: '회생파산',
@@ -34,7 +34,7 @@ export default function PracticeArea() {
     },
     {
       title: '기업법무',
-      details: ['기업자문, 기업컨설팅', '계약서검토, 정관작성성']
+      details: ['기업자문, 기업컨설팅', '계약서검토, 정관작성']
     }
   ];
 
