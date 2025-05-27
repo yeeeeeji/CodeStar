@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import CarouselSlide from './carousel-slide';
 
-const originalSlides = [CarouselSlide, CarouselSlide, CarouselSlide];
+const originalSlides = [CarouselSlide];
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -14,7 +14,7 @@ export default function Carousel() {
   const resetTimer = useCallback(() => {
     return setInterval(() => {
       setCurrentIndex((prev) => prev + 1);
-    }, 5000);
+    }, 500000);
   }, []);
 
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
@@ -85,11 +85,11 @@ export default function Carousel() {
 
       <button
         onClick={prevSlide}
-        className='absolute left-6 md:left-16 lg:left-24 xl:left-32 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
+        className='absolute left-3 sm:left-4 md:left-8 lg:left-16 xl:left-24 2xl:left-32 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
         disabled={!isTransitioning}
       >
         <svg
-          className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-8 2xl:h-8'
+          className='w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8'
           fill='none'
           stroke='currentColor'
           viewBox='0 0 24 24'
@@ -100,11 +100,11 @@ export default function Carousel() {
 
       <button
         onClick={nextSlide}
-        className='absolute right-6 md:right-16 lg:right-24 xl:right-32 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
+        className='absolute right-3 sm:right-4 md:right-8 lg:right-16 xl:right-24 2xl:right-32 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
         disabled={!isTransitioning}
       >
         <svg
-          className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-8 2xl:h-8'
+          className='w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8'
           fill='none'
           stroke='currentColor'
           viewBox='0 0 24 24'

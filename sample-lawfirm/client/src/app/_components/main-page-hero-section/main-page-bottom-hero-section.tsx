@@ -8,7 +8,7 @@ export default function MainPageBottomHeroSection() {
       width='100%'
       height='clamp(500px, 85vh, 800px)'
     >
-      <div className='text-start text-white max-w-4xl'>
+      <div className='text-start text-white w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-[1440px]'>
         <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[64px] font-bold mb-6 leading-tight whitespace-nowrap tracking-[-0.01em]'>
           신뢰를 중심으로
         </h1>

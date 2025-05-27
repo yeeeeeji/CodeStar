@@ -47,10 +47,10 @@ export default function PracticeArea() {
       <div
         className='
           hidden sm:grid 
-          grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
+          grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 
+          gap-x-4 sm:gap-x-4 md:gap-x-3 lg:gap-x-4 xl:gap-x-5 2xl:gap-x-6
           gap-y-[20px] sm:gap-y-[25px] md:gap-y-[30px] lg:gap-y-[35px] xl:gap-y-[40px] 2xl:gap-y-[50px]
-          justify-items-center 
-          max-w-[1440px] mx-auto
+          w-80 sm:w-96 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1440px] mx-auto
         '
       >
         {practiceAreas.map((area, index) => (
