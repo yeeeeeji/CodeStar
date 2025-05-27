@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '법무법인 코드별',
     description: '신뢰를 중심으로 변화를 이끄는 로펌',
-    images: ['/images/logo.png'],
+    images: ['/images/logo.jpg'],
     type: 'website'
   }
 };
