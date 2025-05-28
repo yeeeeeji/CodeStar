@@ -10,14 +10,8 @@ interface MemberCardProps {
 export default function MemberCard({ name, part, img }: MemberCardProps) {
   return (
     <Link href={""}>
-      <div className="relative w-full">
-        <Image
-          src={`/images/members/${img}.png`}
-          alt={name}
-          width={200}
-          height={100}
-          layout="responsive"
-        />
+      <div className="relative h-[514px]">
+        <Image src={`/images/members/${img}.png`} alt={name} layout="fill" />
         <div className="absolute right-0 bottom-0 mb-[20px] justify-items-end">
           <div className="pr-[20px] pb-[8px] text-white text-2xl font-bold">
             {name} 변호사
