@@ -1,12 +1,17 @@
 import WorkAreaTitle from "../work-area-section/work-area-title";
 import MemberCard from "./member-card";
+import { UserGroupIcon } from "@heroicons/react/20/solid";
 
 export default function MemberIntroSection() {
   return (
     <div className="flex justify-center my-[180px]">
       <div className="w-[1440px] justify-center">
         <div className="flex justify-center">
-          <WorkAreaTitle title="구성원소개" position="center" />
+          <WorkAreaTitle
+            title="구성원소개"
+            position="center"
+            icon={UserGroupIcon}
+          />
         </div>
         <div className="justify-between grid grid-cols-4 gap-4 mt-[85px]">
           <MemberCard img="member1" name="이수희" part="의료제약그룹장" />
