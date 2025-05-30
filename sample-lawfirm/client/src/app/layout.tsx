@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import Header from '@/component/header/header';
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
 
 const pretendard = localFont({
   src: '../styles/fonts/PretendardVariable.woff2',
@@ -10,6 +11,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'code-star.vercel.app' : 'http://localhost:3000'),
   title: '법무법인 코드별',
   description: '신뢰를 중심으로 변화를 이끄는 로펌',
   openGraph: {
@@ -27,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className={pretendard.className}>
+      <body className={`${pretendard.className} min-h-screen flex flex-col`}>
         <Header />
-        {children}
+        <main className='flex-1'>{children}</main>
+        <Footer />
       </body>
     </html>
   );
