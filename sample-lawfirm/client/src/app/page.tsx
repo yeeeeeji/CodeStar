@@ -4,6 +4,7 @@ import PracticeArea from "./_components/work-area-section";
 import CaseSection from "./_components/case-section/case-section";
 import MainPageBottomHeroSection from "./_components/main-page-hero-section/main-page-bottom-hero-section";
 import MemberIntroSection from "./_components/member-intro-section/member-intro-section";
+import DirectionsSection from "./_components/directions-section/directions-section";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <MainPageBottomHeroSection />
       {/* 구성원소개 */}
       <MemberIntroSection />
+      {/* 오시는 길 */}
+      <DirectionsSection />
     </div>
   );
 }
