@@ -1,6 +1,7 @@
 import WorkAreaTitle from "../work-area-section/work-area-title";
 import { BuildingOfficeIcon } from "@heroicons/react/20/solid";
 import DirectionsContent from "./directions-content";
+import ViewMoreBtn from "@/components/button/ViewMoreBtn";
 
 export default function DirectionsSection() {
   return (
@@ -20,9 +21,7 @@ export default function DirectionsSection() {
             <div className="h-[25px]" />
             <DirectionsContent title="우편번호" content="05183" />
           </div>
-          <button className="border px-8 py-2 sm:px-12 sm:py-2.5 md:px-16 md:py-3 text-sm md:text-base lg:text-lg hover:bg-black hover:text-white transition-colors duration-300">
-            자세히보기
-          </button>
+          <ViewMoreBtn black={true} />
         </div>
         <div className="col-span-7">지도</div>
       </div>
