@@ -39,9 +39,9 @@ export default function PracticeArea() {
   ];
 
   return (
-    <div className='w-full py-36 px-4'>
+    <div className='w-full py-36 px-4 bg-codestar-dark-navy'>
       <div className='flex justify-center pb-15'>
-        <WorkAreaTitle title='업무분야' position='center' />
+        <WorkAreaTitle title='업무분야' position='center' iconColor='white' textColor='white' />
       </div>
 
       <div
