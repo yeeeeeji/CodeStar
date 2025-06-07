@@ -1,9 +1,41 @@
+"use client";
+
 import WorkAreaTitle from "../work-area-section/work-area-title";
 import { BuildingOfficeIcon } from "@heroicons/react/20/solid";
 import DirectionsContent from "./directions-content";
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
+import { useCallback, useEffect, useRef } from "react";
+import Script from "next/script";
+import { mutate } from "swr";
+
+type NaverMap = naver.maps.Map;
 
 export default function DirectionsSection() {
+  const mapRef = useRef<NaverMap | null>(null);
+
+  const storeMap = useCallback((map: NaverMap) => {
+    mutate("/map", map);
+  }, []);
+
+  const initializeMap = () => {
+    const mapOptions = {
+      center: new window.naver.maps.LatLng(37.5262411, 126.99289439),
+      zoom: 18,
+    };
+
+    const map = new window.naver.maps.Map("map", mapOptions);
+    mapRef.current = map;
+
+    storeMap(map);
+  };
+
+  // 맵이 unmount되면 파괴
+  useEffect(() => {
+    return () => {
+      mapRef.current?.destroy();
+    };
+  }, []);
+
   return (
     <div className="flex justify-center">
       <div className="w-[1440px] grid grid-cols-12">
@@ -23,7 +55,14 @@ export default function DirectionsSection() {
           </div>
           <ViewMoreBtn black={true} />
         </div>
-        <div className="col-span-7">지도</div>
+        <div id="map" className="col-span-7">
+          <Script
+            strategy="afterInteractive"
+            type="text/javascript"
+            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
+            onReady={initializeMap}
+          />
+        </div>
       </div>
     </div>
   );
