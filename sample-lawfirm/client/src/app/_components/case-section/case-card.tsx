@@ -1,5 +1,4 @@
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
-import "./case-section.css";
 
 interface CaseCardProps {
   title: string;
@@ -9,10 +8,12 @@ interface CaseCardProps {
 export default function CaseCard({ title, content }: CaseCardProps) {
   return (
     <div
-      className={`px-[70px] py-[75px] border border-codestar-gray justify-items-start grid gap-8`}
+      className={`px-[70px] py-[75px] border border-codestar-gray justify-items-start grid gap-8 h-[480px] text-[24px]`}
     >
-      <div className="text-[24px]">{title}</div>
-      <div className="text-[24px] card-content">{content}</div>
+      <div>{title}</div>
+      <div>
+        <div className="line-clamp-3">{content}</div>
+      </div>
       <ViewMoreBtn black={true} />
     </div>
   );

@@ -25,14 +25,18 @@ const cases = [
 export default function CaseSection() {
   return (
     <div className="flex justify-center my-[180px]">
-      <div className="w-[1440px]">
-        <div className="grid grid-cols-3 justify-between mb-[60px]">
+      <div className="w-[720px] xl:w-[1000px] 2xl:w-[1440px]">
+        <div className="2xl:grid 2xl:grid-cols-3 2xl:justify-between mb-[60px]">
           <WorkAreaTitle title="업무사례" />
 
           {/* 검색 */}
           <Form
             action={""}
-            className={`col-span-2 flex justify-between w-[962px] border border-codestar-gray rounded-2xl pr-[15px]`}
+            className="
+              col-span-2 flex justify-between border border-codestar-gray rounded-2xl pr-[15px]
+              2xl:w-[962px] 2xl:h-full
+              w-full h-[82px] mt-3
+            "
           >
             <input
               name="query"
@@ -41,7 +45,7 @@ export default function CaseSection() {
             />
             <button type="submit">
               <MagnifyingGlassIcon
-                className="size-11 my-[26px] mr-[25px] ml-[15px]"
+                className="2xl:size-11 size-9 2xl:my-[26px] my-auto mr-[25px] ml-[15px]"
                 color={colors.codestarGray}
                 strokeWidth={3}
               />
@@ -50,7 +54,14 @@ export default function CaseSection() {
         </div>
 
         {/* 카드 */}
-        <div className="flex justify-between grid grid-cols-3 gap-6">
+        <div
+          className="
+            flex justify-between grid
+            grid-cols-1
+            xl:grid-cols-2 lg:gap-6
+            2xl:grid-cols-3 2xl:gap-6
+          "
+        >
           {cases.map((c) => (
             <CaseCard key={c.title} title={c.title} content={c.content} />
           ))}
