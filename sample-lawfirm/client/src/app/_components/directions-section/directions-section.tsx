@@ -13,7 +13,6 @@ type NaverMap = naver.maps.Map;
 export default function DirectionsSection() {
   const mapRef = useRef<NaverMap | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
   const isInitialized = useRef(false); // 초기화 상태 추적
 
   const storeMap = useCallback((map: NaverMap) => {
@@ -43,13 +42,6 @@ export default function DirectionsSection() {
       }
     }
   }, [storeMap]);
-
-  const handleScriptLoad = () => {
-    setIsScriptLoaded(true);
-    setTimeout(() => {
-      initializeMap();
-    }, 100);
-  };
 
   // 언마운트 시 지도 정리
   useEffect(() => {
@@ -96,7 +88,6 @@ export default function DirectionsSection() {
             strategy="afterInteractive"
             type="text/javascript"
             src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
-            onLoad={handleScriptLoad}
             onError={(e) => {
               console.error('네이버 지도 스크립트 로드 실패:', e);
             }}
