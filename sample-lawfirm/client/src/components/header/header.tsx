@@ -103,8 +103,11 @@ export default function Header() {
             <div className='flex justify-between w-120 text-white'>
               {categories.map((category) => (
                 <div key={category.id}>
-                  <Link href={category.href}>
-                    <div className='my-3 border-b-2 border-transparent hover:border-indigo-600'>{category.name}</div>
+                 <Link 
+                    href={category.href}
+                    className='my-3 border-b-2 border-transparent hover:border-indigo-600 block'
+                  >
+                    {category.name}
                   </Link>
                   <div
                     className={`absolute transition-opacity duration-300 ease-in-out delay-0 ${
