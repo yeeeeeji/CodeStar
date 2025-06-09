@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -40,18 +40,6 @@ const categories = [
     ],
   },
   {
-    id: "team",
-    name: "구성원 소개",
-    href: "#",
-    items: [
-      {
-        id: "5",
-        name: "",
-        href: "#",
-      },
-    ],
-  },
-  {
     id: "news",
     name: "소식/자료",
     href: "#",
@@ -78,18 +66,18 @@ const categories = [
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
-  const handleMouseOver = () => {
-    setOpen(true);
-  };
-  const handleMouseLeave = () => {
-    setOpen(false);
-  };
+  // const handleMouseOver = () => {
+  //   setOpen(true);
+  // };
+  // const handleMouseLeave = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-[1440px] z-999">
+      <div className="relative z-999 mx-6 w-full 2xl:w-[1440px]">
         {/* 하위 메뉴 바탕 상자 */}
         {/* <div
           className={`absolute w-full h-40 bg-black transition-all duration-300 ease-in-out transform ${
@@ -102,7 +90,7 @@ export default function Header() {
           className="absolute flex justify-between h-[96px]"
           style={{ width: "100%" }}
         >
-          <div className="my-auto">
+          <div className="my-auto px-[20px]">
             <Link href="/">
               <Image
                 src="/images/logo/logo.svg"
@@ -113,13 +101,13 @@ export default function Header() {
             </Link>
           </div>
           <div
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
+            // onMouseOver={handleMouseOver}
+            // onMouseLeave={handleMouseLeave}
             className="my-auto"
           >
-            <div className="flex justify-between w-120 text-white">
+            <div className="flex text-white">
               {categories.map((category) => (
-                <div key={category.id}>
+                <div key={category.id} className="px-[20px] ml-[20px]">
                   <Link
                     href={category.href}
                     className="my-3 hover:text-blue-600 hover:underline hover:underline-offset-[15px] block text-lg"
