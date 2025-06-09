@@ -103,12 +103,14 @@ export default function Header() {
           style={{ width: "100%" }}
         >
           <div className="my-auto">
-            <Image
-              src="/images/logo/logo.svg"
-              alt="logo"
-              width={160}
-              height={38}
-            />
+            <Link href="/">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="logo"
+                width={160}
+                height={38}
+              />
+            </Link>
           </div>
           <div
             onMouseOver={handleMouseOver}
