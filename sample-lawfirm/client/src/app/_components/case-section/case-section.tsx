@@ -34,7 +34,7 @@ export default function CaseSection() {
             action={""}
             className="
               col-span-2 flex justify-between border border-codestar-gray rounded-2xl pr-[15px]
-              2xl:w-[962px] 2xl:h-full
+              2xl:w-[962px] 2xl:h-full 2xl:mt-0
               w-full h-[82px] mt-3
             "
           >
