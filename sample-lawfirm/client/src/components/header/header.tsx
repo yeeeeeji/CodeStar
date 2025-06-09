@@ -91,13 +91,13 @@ export default function Header() {
     <div className="flex flex-col items-center">
       <div className="relative w-[1440px] z-999">
         {/* 하위 메뉴 바탕 상자 */}
-        <div
+        {/* <div
           className={`absolute w-full h-40 bg-black transition-all duration-300 ease-in-out transform ${
             open
               ? "translate-y-0 opacity-50"
               : "-translate-y-10 opacity-0 pointer-events-none"
           }`}
-        />
+        /> */}
         <div
           className="absolute flex justify-between h-[96px]"
           style={{ width: "100%" }}
@@ -122,11 +122,11 @@ export default function Header() {
                 <div key={category.id}>
                   <Link
                     href={category.href}
-                    className="my-3 border-b-2 border-transparent hover:border-indigo-600 block"
+                    className="my-3 hover:text-blue-600 hover:underline hover:underline-offset-[15px] block text-lg"
                   >
                     {category.name}
                   </Link>
-                  <div
+                  {/* <div
                     className={`absolute transition-opacity duration-300 ease-in-out delay-0 ${
                       open ? "opacity-100" : "opacity-0 pointer-events-none"
                     }`}
@@ -134,7 +134,7 @@ export default function Header() {
                     {category.items.map((item) => (
                       <div key={item.id}>{item.name}</div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
