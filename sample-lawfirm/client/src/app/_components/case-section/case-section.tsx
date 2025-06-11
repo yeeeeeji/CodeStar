@@ -1,8 +1,6 @@
-import Form from "next/form";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import CaseCard from "./case-card";
-import { colors } from "@/constants/colors";
 import WorkAreaTitle from "../work-area-section/work-area-title";
+import SearchBar from "@/components/layout/search-bar";
 
 const cases = [
   {
@@ -28,29 +26,7 @@ export default function CaseSection() {
       <div className="w-[720px] xl:w-[1000px] 2xl:w-[1440px]">
         <div className="2xl:grid 2xl:grid-cols-3 2xl:justify-between mb-[60px]">
           <WorkAreaTitle title="업무사례" />
-
-          {/* 검색 */}
-          <Form
-            action={""}
-            className="
-              col-span-2 flex justify-between border border-codestar-gray rounded-2xl pr-[15px]
-              2xl:w-[962px] 2xl:h-full 2xl:mt-0
-              w-full h-[82px] mt-3
-            "
-          >
-            <input
-              name="query"
-              placeholder="코드별 사건사례를 검색해보세요."
-              className="grow outline-none text-[24px] my-[26px] ml-[25px]"
-            />
-            <button type="submit">
-              <MagnifyingGlassIcon
-                className="2xl:size-11 size-9 2xl:my-[26px] my-auto mr-[25px] ml-[15px]"
-                color={colors.codestarGray}
-                strokeWidth={3}
-              />
-            </button>
-          </Form>
+          <SearchBar />
         </div>
 
         {/* 카드 */}
