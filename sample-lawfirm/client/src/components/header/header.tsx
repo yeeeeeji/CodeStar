@@ -30,7 +30,7 @@ const categories = [
   {
     id: "cases",
     name: "업무사례",
-    href: "#",
+    href: "/case",
     items: [
       {
         id: "4",
