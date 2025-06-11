@@ -1,4 +1,4 @@
-import CaseCard from "./case-card";
+import CaseCard from "@/components/layout/case-card";
 import WorkAreaTitle from "../work-area-section/work-area-title";
 import SearchBar from "@/components/layout/search-bar";
 
