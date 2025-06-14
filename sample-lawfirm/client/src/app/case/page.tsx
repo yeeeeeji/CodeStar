@@ -2,6 +2,7 @@ import Banner from "@/components/layout/banner";
 import SearchBar from "@/components/layout/search-bar";
 import CaseList from "./_component/case-list/case-list";
 import { cases } from "./_component/case-list/data";
+import Pagination from "./_component/pagination/pagination";
 
 export default function CasePage() {
   return (
@@ -22,7 +23,7 @@ export default function CasePage() {
             {/* 사건카드 */}
             <CaseList cases={cases} />
             {/* 페이지네이션 */}
-            <div></div>
+            <Pagination />
           </div>
         </div>
       </div>
