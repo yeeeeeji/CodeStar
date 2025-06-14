@@ -1,5 +1,7 @@
 import Banner from "@/components/layout/banner";
 import SearchBar from "@/components/layout/search-bar";
+import CaseList from "./_component/case-list/case-list";
+import { cases } from "./_component/case-list/data";
 
 export default function CasePage() {
   return (
@@ -18,7 +20,7 @@ export default function CasePage() {
               </div>
             </div>
             {/* 사건카드 */}
-            <div></div>
+            <CaseList cases={cases} />
             {/* 페이지네이션 */}
             <div></div>
           </div>
