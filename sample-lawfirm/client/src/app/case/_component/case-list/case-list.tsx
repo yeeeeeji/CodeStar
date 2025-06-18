@@ -12,7 +12,12 @@ export default function CaseList({ cases }: CaseListProps) {
   return (
     <div className="flex justify-between grid grid-cols-3 gap-6">
       {cases.map((c) => (
-        <CaseCard key={c.title} title={c.title} content={c.content} />
+        <CaseCard
+          key={c.title}
+          title={c.title}
+          content={c.content}
+          winMark={true}
+        />
       ))}
     </div>
   );
