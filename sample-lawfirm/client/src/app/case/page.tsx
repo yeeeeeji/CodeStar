@@ -3,6 +3,7 @@ import SearchBar from "@/components/layout/search-bar";
 import CaseList from "./_component/case-list/case-list";
 import { cases } from "./_component/case-list/data";
 import Pagination from "./_component/pagination/pagination";
+import CaseFilter from "./_component/case-filter/case-filter";
 
 export default function CasePage() {
   return (
@@ -12,9 +13,9 @@ export default function CasePage() {
         <div className="w-[1440px]">
           <div>
             <div className="mt-[109px] mb-[100px] flex justify-between">
-              <div>
+              <div className="flex flex-col justify-between">
                 <div className="text-[40px] font-bold">업무사례</div>
-                <div>필터</div>
+                <CaseFilter />
               </div>
               <div>
                 <SearchBar />
