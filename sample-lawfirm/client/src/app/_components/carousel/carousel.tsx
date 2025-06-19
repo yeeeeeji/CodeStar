@@ -85,7 +85,7 @@ export default function Carousel() {
 
       <button
         onClick={prevSlide}
-        className='absolute left-3 sm:left-4 md:left-8 lg:left-16 xl:left-24 2xl:left-32 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
+        className='absolute left-1 sm:left-2 md:left-4 lg:left-6 xl:left-8 2xl:left-10 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
         disabled={!isTransitioning}
       >
         <svg
@@ -100,7 +100,7 @@ export default function Carousel() {
 
       <button
         onClick={nextSlide}
-        className='absolute right-3 sm:right-4 md:right-8 lg:right-16 xl:right-24 2xl:right-32 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
+        className='absolute right-1 sm:right-2 md:right-4 lg:right-6 xl:right-8 2xl:right-10 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 z-10'
         disabled={!isTransitioning}
       >
         <svg
