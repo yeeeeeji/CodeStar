@@ -9,7 +9,7 @@ export default function CarouselSlide() {
       width="100%"
       height="100%"
     >
-      <div className="text-start text-white">
+      <div className="max-w-[1440px] mx-auto text-start text-white">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[64px] font-bold mb-6 leading-tight tracking-[-0.01em]">
           <span className="block sm:inline">신뢰를 중심으로</span>
           <span className="block sm:inline sm:ml-2">변화를 이끄는 로펌</span>

@@ -54,7 +54,7 @@ const categories = [
   {
     id: "contact",
     name: "상담신청",
-    href: "#",
+    href: "/consultation",
     items: [
       {
         id: "7",
