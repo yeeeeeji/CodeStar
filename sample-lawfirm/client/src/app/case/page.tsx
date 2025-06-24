@@ -5,7 +5,18 @@ import { cases } from "./_component/case-list/data";
 import Pagination from "./_component/pagination/pagination";
 import CaseFilter from "./_component/case-filter/case-filter";
 
-export default function CasePage() {
+interface CaseProps {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}
+
+export default async function CasePage(props: CaseProps) {
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || "";
+  const currentPage = Number(searchParams?.page) || 1;
+
   return (
     <div>
       <Banner imageAlt="업무사례 배너" title="업무사례" />

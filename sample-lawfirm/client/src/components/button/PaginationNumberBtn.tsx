@@ -1,19 +1,24 @@
+import Link from "next/link";
+
 interface PaginationNumberBtnProps {
-  num?: number;
-  selected?: boolean;
+  num: number;
+  currentPage: number;
 }
 
 export default function PaginationNumberBtn({
-  num = 1,
-  selected = false,
+  num,
+  currentPage,
 }: PaginationNumberBtnProps) {
   return (
     <div className="flex items-center justify-center">
-      <button
-        className={`text-[22px] ${selected ? "text-black" : "text-gray-300"}`}
+      <Link
+        href={`/case?page=${num}`}
+        className={`text-[22px] ${
+          num == currentPage ? "text-black" : "text-gray-300"
+        }`}
       >
         {num}
-      </button>
+      </Link>
     </div>
   );
 }
