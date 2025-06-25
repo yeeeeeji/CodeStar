@@ -22,7 +22,7 @@ export default function Pagination() {
   useEffect(() => {
     setPages(
       Array.from(
-        { length: Math.min(5, maxPage - startPage + 1) },
+        { length: Math.min(5, maxPage - startPage) },
         (v, i) => startPage + i + 1
       )
     );
@@ -31,7 +31,10 @@ export default function Pagination() {
   return (
     <div className="flex justify-center">
       <div className="flex my-[50px] gap-[44px]">
-        {/* <PaginationArrowBtn currentPage={currentPage} /> */}
+        <PaginationArrowBtn
+          currentPage={currentPage}
+          path={createPageURL(currentPage - 1)}
+        />
         {pages.map((page) => (
           <PaginationNumberBtn
             key={page}
@@ -40,7 +43,11 @@ export default function Pagination() {
             path={createPageURL(page)}
           />
         ))}
-        {/* <PaginationArrowBtn currentPage={currentPage} right={true} /> */}
+        <PaginationArrowBtn
+          currentPage={currentPage}
+          right={true}
+          path={createPageURL(currentPage + 1)}
+        />
       </div>
     </div>
   );

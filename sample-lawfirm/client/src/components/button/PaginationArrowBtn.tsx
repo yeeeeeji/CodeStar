@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface PaginationArrowBtnProps {
   right?: boolean;
@@ -16,14 +16,11 @@ export default function PaginationArrowBtn({
 }: PaginationArrowBtnProps) {
   const iconStyle = "size-5";
   const disabled = right ? currentPage == maxPage : currentPage == 1;
-  const router = useRouter();
 
   return (
-    <button
-      disabled={disabled}
-      onClick={() => {
-        router.push(path);
-      }}
+    <Link
+      href={disabled ? "" : path}
+      className={disabled ? `pointer-events-none` : ``}
     >
       <div
         className={`${
@@ -42,21 +39,6 @@ export default function PaginationArrowBtn({
           />
         )}
       </div>
-    </button>
-    // <div className="border rounded-full w-[46px] h-[46px] flex items-center justify-center">
-    //   <Link href={disabled ? "" : path}>
-    //     {right ? (
-    //       <ChevronRightIcon
-    //         className={iconStyle}
-    //         color={disabled ? `gray` : `black`}
-    //       />
-    //     ) : (
-    //       <ChevronLeftIcon
-    //         className={iconStyle}
-    //         color={current == 1 ? `gray` : `black`}
-    //       />
-    //     )}
-    //   </Link>
-    // </div>
+    </Link>
   );
 }
