@@ -15,7 +15,6 @@ interface CaseProps {
 export default async function CasePage(props: CaseProps) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
-  const currentPage = Number(searchParams?.page) || 1;
 
   return (
     <div>
