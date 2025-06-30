@@ -15,6 +15,7 @@ interface CaseProps {
 export default async function CasePage(props: CaseProps) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
+  const page = Number(searchParams?.page) || 1;
 
   return (
     <div>
@@ -34,7 +35,7 @@ export default async function CasePage(props: CaseProps) {
             {/* 사건카드 */}
             <CaseList cases={cases} />
             {/* 페이지네이션 */}
-            <Pagination />
+            <Pagination maxPage={13} />
           </div>
         </div>
       </div>
