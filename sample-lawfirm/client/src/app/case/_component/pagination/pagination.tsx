@@ -1,23 +1,21 @@
 "use client";
 
+import { createPageURL } from "@/app/lib/url";
 import PaginationArrowBtn from "@/components/button/PaginationArrowBtn";
 import PaginationNumberBtn from "@/components/button/PaginationNumberBtn";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Pagination() {
+interface PaginationProps {
+  maxPage: number;
+}
+
+export default function Pagination({ maxPage }: PaginationProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
   const startPage = Math.floor(((currentPage ?? 0) - 1) / 5) * 5;
-  const maxPage = 13; // 임시
   const [pages, setPages] = useState<number[]>([]);
-
-  const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("page", pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
-  };
 
   useEffect(() => {
     setPages(
@@ -33,20 +31,20 @@ export default function Pagination() {
       <div className="flex my-[50px] gap-[44px]">
         <PaginationArrowBtn
           currentPage={currentPage}
-          path={createPageURL(currentPage - 1)}
+          path={createPageURL(pathname, searchParams, currentPage - 1)}
         />
         {pages.map((page) => (
           <PaginationNumberBtn
             key={page}
             num={page}
             currentPage={currentPage}
-            path={createPageURL(page)}
+            path={createPageURL(pathname, searchParams, page)}
           />
         ))}
         <PaginationArrowBtn
           currentPage={currentPage}
           right={true}
-          path={createPageURL(currentPage + 1)}
+          path={createPageURL(pathname, searchParams, currentPage + 1)}
         />
       </div>
     </div>

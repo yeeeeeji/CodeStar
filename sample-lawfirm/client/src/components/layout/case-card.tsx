@@ -1,17 +1,24 @@
+"use client";
+
+import { createDetailURL } from "@/app/lib/url";
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface CaseCardProps {
+  caseId: number;
   title: string;
   content: string;
   winMark?: boolean;
 }
 
 export default function CaseCard({
+  caseId,
   title,
   content,
   winMark = false,
 }: CaseCardProps) {
+  const pathname = usePathname();
   return (
     <div className="relative">
       {winMark ? (
@@ -33,7 +40,7 @@ export default function CaseCard({
         <div>
           <div className="line-clamp-4">{content}</div>
         </div>
-        <ViewMoreBtn black={true} />
+        <ViewMoreBtn path={createDetailURL(pathname, caseId)} black={true} />
       </div>
     </div>
   );

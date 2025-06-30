@@ -14,6 +14,7 @@ export default function CaseList({ cases }: CaseListProps) {
       {cases.map((c) => (
         <CaseCard
           key={c.title}
+          caseId={c.id}
           title={c.title}
           content={c.content}
           winMark={true}
