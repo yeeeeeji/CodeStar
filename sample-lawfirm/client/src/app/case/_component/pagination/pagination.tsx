@@ -1,6 +1,6 @@
 "use client";
 
-import { createPageURL } from "@/app/lib/url";
+import { createPageURL } from "@/lib/url";
 import PaginationArrowBtn from "@/components/button/PaginationArrowBtn";
 import PaginationNumberBtn from "@/components/button/PaginationNumberBtn";
 import { usePathname, useSearchParams } from "next/navigation";

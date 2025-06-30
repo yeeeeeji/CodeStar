@@ -1,12 +1,13 @@
 "use client";
 
-import { createDetailURL } from "@/app/lib/url";
+import { createDetailURL } from "@/lib/url";
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface CaseCardProps {
   caseId: number;
+  category: string;
   title: string;
   content: string;
   winMark?: boolean;
@@ -14,6 +15,7 @@ interface CaseCardProps {
 
 export default function CaseCard({
   caseId,
+  category,
   title,
   content,
   winMark = false,
@@ -36,7 +38,9 @@ export default function CaseCard({
       <div
         className={`px-[70px] py-[75px] border border-codestar-gray justify-items-start grid gap-10 h-[480px] text-[24px]`}
       >
-        <div>{title}</div>
+        <div className="line-clamp-1">
+          [{category}] {title}
+        </div>
         <div>
           <div className="line-clamp-4">{content}</div>
         </div>
