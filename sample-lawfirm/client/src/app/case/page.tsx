@@ -5,17 +5,18 @@ import { cases } from "./_component/case-list/data";
 import Pagination from "./_component/pagination/pagination";
 import CaseFilter from "./_component/case-filter/case-filter";
 
-interface CaseProps {
-  searchParams?: Promise<{
-    query?: string;
-    page?: string;
-  }>;
-}
+// interface CaseProps {
+//   searchParams?: Promise<{
+//     query?: string;
+//     page?: string;
+//   }>;
+// }
 
-export default async function CasePage(props: CaseProps) {
-  const searchParams = await props.searchParams;
-  const query = searchParams?.query || "";
-  const page = Number(searchParams?.page) || 1;
+export default function CasePage() {
+  // export default async function CasePage(props: CaseProps) {
+  // const searchParams = await props.searchParams;
+  // const query = searchParams?.query || "";
+  // const page = Number(searchParams?.page) || 1;
 
   return (
     <div>

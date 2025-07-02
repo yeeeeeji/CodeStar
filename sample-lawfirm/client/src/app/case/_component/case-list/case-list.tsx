@@ -3,6 +3,7 @@ import CaseCard from "@/components/layout/case-card";
 interface CaseListProps {
   cases: {
     id: number;
+    category: string;
     title: string;
     content: string;
   }[];
@@ -15,6 +16,7 @@ export default function CaseList({ cases }: CaseListProps) {
         <CaseCard
           key={c.title}
           caseId={c.id}
+          category={c.category}
           title={c.title}
           content={c.content}
           winMark={true}

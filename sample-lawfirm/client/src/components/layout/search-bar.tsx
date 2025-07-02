@@ -1,6 +1,10 @@
+"use client";
+
 import { colors } from "@/constants/colors";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Form from "next/form";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface SearchBarProps {
   placeholder?: string;
@@ -15,9 +19,46 @@ export default function SearchBar({
   inputStyle = "grow outline-none text-[24px] my-[26px] ml-[25px]",
   iconStyle = "2xl:size-11 size-9 2xl:my-[26px] my-auto mr-[25px] ml-[15px]",
 }: SearchBarProps) {
+  const searchParams = useSearchParams();
+  const queryParam = searchParams.get("query") ?? "";
+  const [query, setQuery] = useState(queryParam);
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setQuery(queryParam);
+  }, [queryParam]);
+
+  const handleSearch = () => {
+    if (query.trim() === "") {
+      router.push(pathname);
+    } else {
+      const params = new URLSearchParams();
+      if (query.trim()) params.set("query", query);
+      router.push(`${pathname}?${params.toString()}`);
+    }
+  };
+
   return (
-    <Form action={""} className={formStyle}>
-      <input name="query" placeholder={placeholder} className={inputStyle} />
+    <Form
+      action={""}
+      className={formStyle}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSearch();
+      }}
+    >
+      <input
+        name="query"
+        className={inputStyle}
+        placeholder={placeholder}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleSearch();
+        }}
+      />
       <button type="submit">
         <MagnifyingGlassIcon
           className={iconStyle}
