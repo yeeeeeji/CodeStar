@@ -1,6 +1,6 @@
-import { collection, addDoc, getDocs, query, orderBy, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { ReservationData, ReservationWithId } from './types';
+import { ReservationData } from './types';
 
 export const saveReservation = async (data: ReservationData) => {
   try {
