@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface BaseProps {
   label: string;
@@ -40,6 +40,10 @@ export default function ReservationInput(props: ReservationInputProps) {
       onChange(newValue);
     }
   };
+
+  useEffect(() => {
+    setInternalValue(value || '');
+  }, [value]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
