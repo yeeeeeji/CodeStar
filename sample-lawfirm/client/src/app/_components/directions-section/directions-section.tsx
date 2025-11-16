@@ -24,19 +24,22 @@ export default function DirectionsSection() {
       return;
     }
 
-    if (typeof window !== 'undefined' && window.naver && window.naver.maps) {
+    if (typeof window !== "undefined" && window.naver && window.naver.maps) {
       const mapOptions = {
         center: new window.naver.maps.LatLng(37.5262411, 126.99289439),
         zoom: 18,
       };
 
       try {
-        const map = new window.naver.maps.Map(mapContainerRef.current, mapOptions);
+        const map = new window.naver.maps.Map(
+          mapContainerRef.current,
+          mapOptions
+        );
         mapRef.current = map;
         isInitialized.current = true;
         storeMap(map);
       } catch (error) {
-        console.error('지도 초기화 오류:', error);
+        console.error("지도 초기화 오류:", error);
       }
     }
   }, [storeMap]);
@@ -48,12 +51,21 @@ export default function DirectionsSection() {
   };
 
   useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.naver &&
+      window.naver.maps &&
+      !mapRef.current
+    ) {
+      initializeMap();
+    }
+
     return () => {
       if (mapRef.current && isInitialized.current) {
         try {
           mapRef.current.destroy();
         } catch (error) {
-          console.warn('지도 이미 제거 완', error);
+          console.warn("지도 이미 제거 완", error);
         } finally {
           mapRef.current = null;
           isInitialized.current = false;
@@ -82,18 +94,17 @@ export default function DirectionsSection() {
           <ViewMoreBtn black={true} />
         </div>
         <div className="col-span-7 relative">
-          <div 
+          <div
             ref={mapContainerRef}
             className="w-full h-full min-h-[400px]"
-          >
-          </div>
+          ></div>
           <Script
             strategy="afterInteractive"
             type="text/javascript"
-            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
+            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
             onLoad={handleScriptLoad}
             onError={(e) => {
-              console.error('네이버 지도 스크립트 로드 실패:', e);
+              console.error("네이버 지도 스크립트 로드 실패:", e);
             }}
           />
         </div>
