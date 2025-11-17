@@ -4,11 +4,13 @@ import { useCallback, useEffect, useRef } from "react";
 import { mutate } from "swr";
 
 type NaverMap = naver.maps.Map;
+type NaverMapMarker = naver.maps.Marker;
 
 export const useNaverMap = (
   mapContainerRef: React.RefObject<HTMLDivElement | null>
 ) => {
   const mapRef = useRef<NaverMap | null>(null);
+  const markerRef = useRef<NaverMapMarker | null>(null);
   const isInitialized = useRef(false);
 
   const storeMap = useCallback((map: NaverMap) => {
@@ -23,7 +25,8 @@ export const useNaverMap = (
     if (typeof window !== "undefined" && window.naver && window.naver.maps) {
       const mapOptions = {
         center: new window.naver.maps.LatLng(37.5262411, 126.99289439),
-        zoom: 18,
+        minZoom: 17,
+        maxZoom: 17,
       };
 
       try {
@@ -31,7 +34,14 @@ export const useNaverMap = (
           mapContainerRef.current,
           mapOptions
         );
+
+        const marker = new naver.maps.Marker({
+          position: new window.naver.maps.LatLng(37.5262411, 126.99289439),
+          map,
+        });
+
         mapRef.current = map;
+        markerRef.current = marker;
         isInitialized.current = true;
         storeMap(map);
       } catch (error) {
