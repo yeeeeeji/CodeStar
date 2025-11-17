@@ -22,7 +22,7 @@ export default function Directions() {
   });
 
   return (
-    <div className="max-w-[1440px] mx-auto mt-[200px]">
+    <div id="directions" className="max-w-[1440px] mx-auto mt-[200px]">
       <div className="text-center my-[50px]">
         <p className="text-[40px] font-bold tracking-[-0.01em] mb-[20px]">
           오시는 길
