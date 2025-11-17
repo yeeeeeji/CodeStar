@@ -1,23 +1,37 @@
-// import Script from "next/script";
-// import { useRef } from "react";
+"use client";
+
+import { useNaverMap } from "@/hooks/useNaverMap";
+import Script from "next/script";
+import { useEffect, useRef } from "react";
+import DirectionsContent from "./directions-content";
 
 export default function Directions() {
-  // const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const { mapRef, initializeMap, handleScriptLoad } =
+    useNaverMap(mapContainerRef);
+
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.naver &&
+      window.naver.maps &&
+      !mapRef.current
+    ) {
+      initializeMap();
+    }
+  });
 
   return (
-    <div className="mt-[200px]">
+    <div className="max-w-[1440px] mx-auto mt-[200px]">
       <div className="text-center my-[50px]">
         <p className="text-[40px] font-bold tracking-[-0.01em] mb-[20px]">
           오시는 길
         </p>
         <p>경기도 수원시 팔달구 효원로 03번길 1-25 효원빌딩 7층</p>
       </div>
-      {/* <div>
-        <div className="col-span-7 relative">
-          <div
-            ref={mapContainerRef}
-            className="w-full h-full min-h-[400px]"
-          ></div>
+      <div>
+        <div>
+          <div ref={mapContainerRef} className="w-full h-[830px]"></div>
           <Script
             strategy="afterInteractive"
             type="text/javascript"
@@ -28,7 +42,8 @@ export default function Directions() {
             }}
           />
         </div>
-      </div> */}
+        <DirectionsContent />
+      </div>
     </div>
   );
 }

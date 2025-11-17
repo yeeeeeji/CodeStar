@@ -41,15 +41,6 @@ export const useNaverMap = (
   }, [storeMap]);
 
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.naver &&
-      window.naver.maps &&
-      !mapRef.current
-    ) {
-      initializeMap();
-    }
-
     return () => {
       if (mapRef.current && isInitialized.current) {
         try {
