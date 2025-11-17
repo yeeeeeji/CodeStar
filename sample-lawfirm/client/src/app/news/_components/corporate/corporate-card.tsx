@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 interface CorporateCardProps {
   title: string;
   image: string;
@@ -9,14 +7,7 @@ export default function CorporateCard({ title, image }: CorporateCardProps) {
   return (
     <div className='flex flex-col bg-white overflow-hidden'>
       <div className='relative w-full h-[264px]'>
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className='object-cover'
-          sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-          priority={true}
-        />
+        <div className='w-full h-[264px] bg-center bg-cover' style={{ backgroundImage: `url(${image})` }} />
       </div>
 
       <div className='mt-[28px]'>
