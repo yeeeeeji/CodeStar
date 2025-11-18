@@ -2,7 +2,7 @@ import CaseCard from "@/components/layout/case-card";
 
 interface CaseListProps {
   cases: {
-    id: number;
+    id: string;
     category: string;
     title: string;
     content: string;

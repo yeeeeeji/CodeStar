@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface CaseCardProps {
-  caseId: number;
+  caseId: string;
   category: string;
   title: string;
   content: string;
