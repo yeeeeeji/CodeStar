@@ -26,7 +26,7 @@ export default function CaseCard({
       {winMark ? (
         <div className="absolute right-7 -top-1">
           <Image
-            src="/images/case/win-mark.png"
+            src="/images/case/win-mark.svg"
             alt="승소"
             width={68.5}
             height={80}

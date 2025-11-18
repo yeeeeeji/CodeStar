@@ -7,7 +7,7 @@ interface DropdownFilterProps {
 export default function DropdownFilter({ title }: DropdownFilterProps) {
   return (
     <div className="flex">
-      <div className="text-base">{title[0]}</div>
+      <div className="text-base w-[100px]">{title[0]}</div>
       <div>
         <ChevronDownIcon className="size-6" />
       </div>
