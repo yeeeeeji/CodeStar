@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "codestar-lawfirm.firebasestorage.app",
   messagingSenderId: "647665859175",
   appId: "1:647665859175:web:a7f6106a8e781bd5e032c2",
-  measurementId: "G-ZL96ZPNPWG"
+  measurementId: "G-ZL96ZPNPWG",
 };
 
 // Initialize Firebase

@@ -1,7 +1,6 @@
 import Banner from "@/components/layout/banner";
 import SearchBar from "@/components/layout/search-bar";
 import CaseList from "./_component/case-list/case-list";
-import { cases } from "./_component/case-list/data";
 import Pagination from "./_component/pagination/pagination";
 import CaseFilter from "./_component/case-filter/case-filter";
 
@@ -34,7 +33,7 @@ export default function CasePage() {
               </div>
             </div>
             {/* 사건카드 */}
-            <CaseList cases={cases} />
+            <CaseList />
             {/* 페이지네이션 */}
             <Pagination maxPage={13} />
           </div>

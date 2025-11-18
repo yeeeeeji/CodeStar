@@ -8,6 +8,6 @@ export const createPageURL = (
   return `${pathname}?${params.toString()}`;
 };
 
-export const createDetailURL = (pathname: string, id: number | string) => {
+export const createDetailURL = (pathname: string, id: string) => {
   return `${pathname}/detail/${id}`;
 };

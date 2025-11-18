@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface CaseCardProps {
-  caseId: number;
+  caseId: string;
   category: string;
   title: string;
   content: string;
@@ -26,7 +26,7 @@ export default function CaseCard({
       {winMark ? (
         <div className="absolute right-7 -top-1">
           <Image
-            src="/images/case/win-mark.png"
+            src="/images/case/win-mark.svg"
             alt="승소"
             width={68.5}
             height={80}
