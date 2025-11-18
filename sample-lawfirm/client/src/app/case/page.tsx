@@ -4,7 +4,6 @@ import CaseList from "./_component/case-list/case-list";
 // import { cases } from "./_component/case-list/data";
 import Pagination from "./_component/pagination/pagination";
 import CaseFilter from "./_component/case-filter/case-filter";
-import { fetchCaseList } from "@/lib/db/cases/api";
 
 // interface CaseProps {
 //   searchParams?: Promise<{
@@ -13,12 +12,11 @@ import { fetchCaseList } from "@/lib/db/cases/api";
 //   }>;
 // }
 
-export default async function CasePage() {
+export default function CasePage() {
   // export default async function CasePage(props: CaseProps) {
   // const searchParams = await props.searchParams;
   // const query = searchParams?.query || "";
   // const page = Number(searchParams?.page) || 1;
-  const cases = await fetchCaseList();
 
   return (
     <div>
@@ -36,7 +34,7 @@ export default async function CasePage() {
               </div>
             </div>
             {/* 사건카드 */}
-            <CaseList cases={cases} />
+            <CaseList />
             {/* 페이지네이션 */}
             <Pagination maxPage={13} />
           </div>
