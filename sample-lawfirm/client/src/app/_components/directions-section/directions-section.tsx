@@ -41,7 +41,7 @@ export default function DirectionsSection() {
             <div className="h-[25px]" />
             <DirectionsContent title="우편번호" content="05183" />
           </div>
-          <ViewMoreBtn black={true} />
+          <ViewMoreBtn black={true} path="/introduce#directions" />
         </div>
         <div className="col-span-7 relative">
           <div
