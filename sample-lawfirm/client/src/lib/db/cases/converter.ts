@@ -11,6 +11,7 @@ export const caseConverter = {
       category: d.category,
       title: d.title,
       content: d.content,
+      createdAt: d.createdAt,
     };
   },
 };
