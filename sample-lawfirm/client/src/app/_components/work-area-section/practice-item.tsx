@@ -4,6 +4,8 @@ interface PracticeItemProps {
 }
 
 export default function PracticeItem({ title, details }: PracticeItemProps) {
+  const imageFileName = title.replace(/\//g, '');
+
   return (
     <div
       className={`
@@ -21,7 +23,7 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
         group
       `}
       style={{
-        backgroundImage: `url('/images/main-page/work-area-pic.png')`
+        backgroundImage: `url('/images/practice/${imageFileName}.png')`
       }}
     >
       {/* 오버레이 */}
