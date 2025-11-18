@@ -4,63 +4,25 @@ import WorkAreaTitle from "../work-area-section/work-area-title";
 import { BuildingOfficeIcon } from "@heroicons/react/20/solid";
 import DirectionsContent from "./directions-content";
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Script from "next/script";
-import { mutate } from "swr";
-
-type NaverMap = naver.maps.Map;
+import { useNaverMap } from "@/hooks/useNaverMap";
 
 export default function DirectionsSection() {
-  const mapRef = useRef<NaverMap | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const isInitialized = useRef(false);
-
-  const storeMap = useCallback((map: NaverMap) => {
-    mutate("/map", map);
-  }, []);
-
-  const initializeMap = useCallback(() => {
-    if (isInitialized.current || !mapContainerRef.current) {
-      return;
-    }
-
-    if (typeof window !== 'undefined' && window.naver && window.naver.maps) {
-      const mapOptions = {
-        center: new window.naver.maps.LatLng(37.5262411, 126.99289439),
-        zoom: 18,
-      };
-
-      try {
-        const map = new window.naver.maps.Map(mapContainerRef.current, mapOptions);
-        mapRef.current = map;
-        isInitialized.current = true;
-        storeMap(map);
-      } catch (error) {
-        console.error('지도 초기화 오류:', error);
-      }
-    }
-  }, [storeMap]);
-
-  const handleScriptLoad = () => {
-    setTimeout(() => {
-      initializeMap();
-    }, 100);
-  };
+  const { mapRef, initializeMap, handleScriptLoad } =
+    useNaverMap(mapContainerRef);
 
   useEffect(() => {
-    return () => {
-      if (mapRef.current && isInitialized.current) {
-        try {
-          mapRef.current.destroy();
-        } catch (error) {
-          console.warn('지도 이미 제거 완', error);
-        } finally {
-          mapRef.current = null;
-          isInitialized.current = false;
-        }
-      }
-    };
-  }, []);
+    if (
+      typeof window !== "undefined" &&
+      window.naver &&
+      window.naver.maps &&
+      !mapRef.current
+    ) {
+      initializeMap();
+    }
+  });
 
   return (
     <div className="flex justify-center">
@@ -79,21 +41,20 @@ export default function DirectionsSection() {
             <div className="h-[25px]" />
             <DirectionsContent title="우편번호" content="05183" />
           </div>
-          <ViewMoreBtn black={true} />
+          <ViewMoreBtn black={true} path="/introduce#directions" />
         </div>
         <div className="col-span-7 relative">
-          <div 
+          <div
             ref={mapContainerRef}
             className="w-full h-full min-h-[400px]"
-          >
-          </div>
+          ></div>
           <Script
             strategy="afterInteractive"
             type="text/javascript"
-            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
+            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
             onLoad={handleScriptLoad}
             onError={(e) => {
-              console.error('네이버 지도 스크립트 로드 실패:', e);
+              console.error("네이버 지도 스크립트 로드 실패:", e);
             }}
           />
         </div>
