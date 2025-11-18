@@ -6,3 +6,10 @@ export interface Corporate {
 export interface CodestarMedia {
   image: string;
 }
+
+export interface Newsletter {
+  title: string;
+  content: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
