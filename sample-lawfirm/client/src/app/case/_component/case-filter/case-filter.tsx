@@ -1,14 +1,12 @@
+import { getCaseCategories } from "@/hooks/getCaseCategories";
 import DropdownFilter from "./dropdown-filter";
 
-export default function CaseFilter() {
+export default async function CaseFilter() {
+  const categories = await getCaseCategories();
+  console.log(categories);
   return (
     <div className="flex">
-      <DropdownFilter title={filter1} />
-      <div className="mr-[55px]" />
-      <DropdownFilter title={filter2} />
+      <DropdownFilter title={categories} />
     </div>
   );
 }
-
-const filter1 = ["업무사례", "업무사례", "업무사례", "업무사례", "업무사례"];
-const filter2 = ["형사", "형사사건", "형사", "형사", "형사"];
