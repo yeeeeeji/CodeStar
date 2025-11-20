@@ -1,6 +1,6 @@
 import CaseCard from "@/components/layout/case-card";
 import WorkAreaTitle from "../work-area-section/work-area-title";
-import SearchBar from "@/components/layout/search-bar";
+// import SearchBar from "@/components/layout/search-bar";
 import { fetchCases } from "@/lib/db/cases/api";
 
 export default async function CaseSection() {
@@ -10,7 +10,7 @@ export default async function CaseSection() {
       <div className="w-[720px] xl:w-[1000px] 2xl:w-[1440px]">
         <div className="2xl:grid 2xl:grid-cols-3 2xl:justify-between mb-[60px]">
           <WorkAreaTitle title="업무사례" />
-          <SearchBar />
+          {/* <SearchBar /> */}
         </div>
 
         {/* 카드 */}
