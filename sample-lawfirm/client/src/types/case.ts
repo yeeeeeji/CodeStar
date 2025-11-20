@@ -1,4 +1,5 @@
-export interface Cases {
+export interface CaseSearchResults {
+  id: string;
   category: string;
   title: string;
   content: string;

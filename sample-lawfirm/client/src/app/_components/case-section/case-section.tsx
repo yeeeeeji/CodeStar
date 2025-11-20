@@ -1,10 +1,10 @@
 import CaseCard from "@/components/layout/case-card";
 import WorkAreaTitle from "../work-area-section/work-area-title";
 import SearchBar from "@/components/layout/search-bar";
-import { fetchTopThreeCases } from "@/lib/db/cases/api";
+import { fetchCases } from "@/lib/db/cases/api";
 
 export default async function CaseSection() {
-  const cases = await fetchTopThreeCases();
+  const cases = await fetchCases(3);
   return (
     <div className="flex justify-center my-[180px]">
       <div className="w-[720px] xl:w-[1000px] 2xl:w-[1440px]">
