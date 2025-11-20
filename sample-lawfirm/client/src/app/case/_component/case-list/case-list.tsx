@@ -1,9 +1,11 @@
 import CaseCard from "@/components/layout/case-card";
-import { fetchCases } from "@/lib/db/cases/api";
+import { CaseSearchResults } from "@/types/case";
 
-export default async function CaseList() {
-  const cases = await fetchCases();
+interface CaseListProps {
+  cases: CaseSearchResults[];
+}
 
+export default function CaseList({ cases }: CaseListProps) {
   return (
     <div className="flex justify-between grid grid-cols-3 gap-6">
       {cases.map((c) => (

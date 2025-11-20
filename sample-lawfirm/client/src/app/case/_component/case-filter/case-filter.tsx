@@ -3,9 +3,12 @@
 import { getCaseCategories } from "@/hooks/getCaseCategories";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { fetchCases, searchCasesByCategory } from "@/lib/db/cases/api";
 
-export default function CaseFilter() {
+interface CaseFilter {
+  searchFunc: (query: string) => void;
+}
+
+export default function CaseFilter({ searchFunc }: CaseFilter) {
   const [options, setOptions] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>("전체");
@@ -17,11 +20,7 @@ export default function CaseFilter() {
   };
 
   const selectOption = async (option: string) => {
-    const searchResults =
-      option === "전체"
-        ? await fetchCases()
-        : await searchCasesByCategory(option);
-    console.log(searchResults);
+    searchFunc(option);
     setSelectedOption(option);
     setIsOpen(false);
   };

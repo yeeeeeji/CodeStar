@@ -25,7 +25,7 @@ export const fetchCases = async (caseLimit: number = 9) => {
   }
 };
 
-export const searchCasesByCategory = async (category: string) => {
+export const fetchCasesByCategory = async (category: string) => {
   const ref = collection(db, "cases").withConverter(caseConverter);
   const q = query(ref, where("category", "==", category), limit(9));
 
