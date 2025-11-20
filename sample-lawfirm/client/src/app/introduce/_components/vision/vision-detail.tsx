@@ -9,12 +9,22 @@ export default function VisionDetail() {
   ];
 
   return (
-    <div className='flex justify-between gap-5'>
+    <div className='flex'>
       {visions.map((vision, index) => (
-        <div key={index} className='p-15 text-center flex flex-col items-center'>
-          <p className='text-2xl font-medium leading-[1.6] tracking-[-0.01em]'>{String(index + 1).padStart(2, '0')}</p>
-          <Image src='/images/introduce/icon_ex.svg' alt='logo' width={100} height={100} className='my-11' />
-          <p className='text-[20px] font-medium leading-[1.6] tracking-[-0.01em] whitespace-pre-line'>{vision.text}</p>
+        <div key={index} className='flex-1 flex flex-col items-center text-center'>
+          <p className='text-2xl font-medium leading-[1.6] tracking-[-0.01em] text-codestar-blue'>
+            {String(index + 1).padStart(2, '0')}
+          </p>
+          <Image
+            src={`/images/introduce/icon_0${index + 1}.svg`}
+            alt='logo'
+            width={100}
+            height={100}
+            className='my-11'
+          />
+          <p className='text-[20px] font-medium leading-[1.6] tracking-[-0.01em] whitespace-pre-line text-codestar-blue'>
+            {vision.text}
+          </p>
         </div>
       ))}
     </div>
