@@ -1,14 +1,14 @@
 "use client";
 
 import { getCaseCategories } from "@/hooks/getCaseCategories";
-import DropdownFilter from "./dropdown-filter";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { fetchCases, searchCasesByCategory } from "@/lib/db/cases/api";
 
 export default function CaseFilter() {
   const [options, setOptions] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [selectedOption, setSelectedOption] = useState<string>("전체");
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -16,7 +16,12 @@ export default function CaseFilter() {
     setIsOpen((prev) => !prev);
   };
 
-  const selectOption = (option: string) => {
+  const selectOption = async (option: string) => {
+    const searchResults =
+      option === "전체"
+        ? await fetchCases()
+        : await searchCasesByCategory(option);
+    console.log(searchResults);
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -25,7 +30,7 @@ export default function CaseFilter() {
     const loadCategories = async () => {
       try {
         const categories = await getCaseCategories();
-        setOptions(categories);
+        setOptions(["전체", ...categories]);
       } catch (error) {
         console.error("카테고리 로딩 중 오류 발생", error);
       }
@@ -34,21 +39,21 @@ export default function CaseFilter() {
     loadCategories();
   });
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-      document.addEventListener("mousedown", handleClickOutside);
+  // useEffect(() => {
+  //   const handleClickOutside = (e: MouseEvent) => {
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(e.target as Node)
+  //     ) {
+  //       setIsOpen(false);
+  //     }
+  //     document.addEventListener("mousedown", handleClickOutside);
 
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    };
-  }, []);
+  //     return () => {
+  //       document.removeEventListener("mousedown", handleClickOutside);
+  //     };
+  //   };
+  // }, []);
 
   return (
     <div ref={dropdownRef} className="flex">

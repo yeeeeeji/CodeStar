@@ -1,19 +1,17 @@
-import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../firebase";
 import { caseConverter } from "./converter";
 
-export const fetchCaseList = async () => {
+export const fetchCases = async (caseLimit: number = 9) => {
   const ref = collection(db, "cases").withConverter(caseConverter);
-  const snapshot = await getDocs(ref);
-  return snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-};
-
-export const fetchTopThreeCases = async () => {
-  const ref = collection(db, "cases").withConverter(caseConverter);
-  const q = query(ref, orderBy("createdAt", "desc"), limit(3));
+  const q = query(ref, orderBy("createdAt", "desc"), limit(caseLimit));
 
   try {
     const snapshot = await getDocs(q);
@@ -22,7 +20,23 @@ export const fetchTopThreeCases = async () => {
       ...doc.data(),
     }));
   } catch (error) {
-    console.error("메인페이지 업무사례 로딩 실패", error);
+    console.error("업무사례 로딩 실패", error);
+    return [];
+  }
+};
+
+export const searchCasesByCategory = async (category: string) => {
+  const ref = collection(db, "cases").withConverter(caseConverter);
+  const q = query(ref, where("category", "==", category), limit(9));
+
+  try {
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+  } catch (error) {
+    console.error("카테고리 검색 실패", error);
     return [];
   }
 };
