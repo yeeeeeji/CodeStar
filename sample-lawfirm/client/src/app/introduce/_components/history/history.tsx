@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function CompanyHistory() {
   const historyData = [
     {
@@ -50,16 +52,21 @@ export default function CompanyHistory() {
 
   return (
     <div className='max-w-[1440px] mx-auto'>
-      <div>
-        <p className='text-[40px] font-bold tracking-[-0.01em] text-center mt-[50px]'>연혁</p>
+      <div className='relative w-full h-[400px] rounded-[20px] overflow-hidden'>
+        <Image src='/images/introduce/history.png' alt='연혁 배경 이미지' fill className='object-cover' quality={100} />
+        <p className='absolute inset-0 flex items-center justify-center text-[40px] font-bold tracking-[-0.01em] text-white'>
+          연혁
+        </p>
       </div>
-      <div className='my-25 space-y-25'>
+
+      <div className='my-30 space-y-25'>
         {historyData.map((yearData) => (
           <div key={yearData.year} className='flex items-start gap-8'>
             <div className='flex w-[467px] items-center justify-between'>
               <p className='text-6xl font-bold tracking-[-0.01em]'>{yearData.year}</p>
               <div className='w-[200px] h-px bg-gray-500'></div>
             </div>
+
             <div className='flex-1'>
               {yearData.events.map((event) => (
                 <div key={`${yearData.year}-${event.month}`} className='flex gap-[58px]'>
