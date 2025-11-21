@@ -9,7 +9,7 @@ import {
 import { db } from "../firebase";
 import { caseConverter } from "./converter";
 
-export const fetchCases = async (caseLimit: number = 9) => {
+export const fetchCases = async (caseLimit: number = 9999) => {
   const ref = collection(db, "cases").withConverter(caseConverter);
   const q = query(ref, orderBy("createdAt", "desc"), limit(caseLimit));
 

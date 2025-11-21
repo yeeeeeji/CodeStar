@@ -3,16 +3,18 @@ import Link from "next/link";
 
 interface PaginationArrowBtnProps {
   right?: boolean;
-  currentPage?: number;
-  maxPage?: number;
+  currentPage: number;
+  maxPage: number;
   path?: string;
+  pageFunc: (page: number) => void;
 }
 
 export default function PaginationArrowBtn({
   right = false,
-  currentPage = 1,
-  maxPage = 13,
+  currentPage,
+  maxPage,
   path = "",
+  pageFunc,
 }: PaginationArrowBtnProps) {
   const iconStyle = "size-5";
   const disabled = right ? currentPage == maxPage : currentPage == 1;
@@ -26,6 +28,9 @@ export default function PaginationArrowBtn({
         className={`${
           disabled ? `border-gray-400` : `border-black`
         } border rounded-full w-[46px] h-[46px] flex items-center justify-center`}
+        onClick={() => {
+          pageFunc(currentPage + (right ? 1 : -1));
+        }}
       >
         {right ? (
           <ChevronRightIcon
@@ -35,7 +40,7 @@ export default function PaginationArrowBtn({
         ) : (
           <ChevronLeftIcon
             className={iconStyle}
-            color={currentPage == 1 ? `gray` : `black`}
+            color={disabled ? `gray` : `black`}
           />
         )}
       </div>

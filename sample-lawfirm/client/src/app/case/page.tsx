@@ -5,13 +5,19 @@ import SearchBar from "@/components/layout/search-bar";
 import CaseList from "./_component/case-list/case-list";
 import Pagination from "./_component/pagination/pagination";
 import CaseFilter from "./_component/case-filter/case-filter";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { fetchCases, fetchCasesByCategory } from "@/lib/db/cases/api";
 import { CaseSearchResults } from "@/types/case";
 import { searchCases } from "@/hooks/searchCases";
 
 export default function CasePage() {
-  const [cases, setCases] = useState<CaseSearchResults[]>([]);
+  const [allCases, setAllCases] = useState<CaseSearchResults[]>([]);
+  const [filteredCases, setFilteredCases] = useState<CaseSearchResults[]>([]);
+  const [currentCases, setCurrentCase] = useState<CaseSearchResults[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [maxPage, setMaxPage] = useState<number>(1);
+  const pageSize = 9;
+
   const [searchCategoryQuery, setSearchCategoryQuery] =
     useState<string>("전체");
   const [searchKeywordQuery, setSearchKeywordQuery] = useState<string>("");
@@ -24,6 +30,34 @@ export default function CasePage() {
     setSearchKeywordQuery(query);
   };
 
+  const handleCurrentPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const paginatedCases = useMemo(() => {
+    const startIndesx = (currentPage - 1) * pageSize;
+    return filteredCases.slice(startIndesx, startIndesx + pageSize);
+  }, [filteredCases, currentPage]);
+
+  useEffect(() => {
+    const loadInitialDatas = async () => {
+      try {
+        const results = await fetchCases();
+        setAllCases(results);
+        setFilteredCases(results);
+        setMaxPage(Math.ceil(results.length / pageSize));
+        console.log(Math.ceil(results.length / pageSize), results);
+      } catch (error) {
+        console.error("업무 사례 초기 데이터 로딩 실패", error);
+      }
+    };
+    loadInitialDatas();
+  }, []);
+
+  useEffect(() => {
+    setCurrentCase(paginatedCases);
+  }, [filteredCases, currentPage, paginatedCases]);
+
   useEffect(() => {
     setSearchKeywordQuery("");
     const searchCasesByCategory = async () => {
@@ -32,7 +66,8 @@ export default function CasePage() {
           searchCategoryQuery === "전체"
             ? await fetchCases()
             : await fetchCasesByCategory(searchCategoryQuery);
-        setCases(results);
+        setFilteredCases(results);
+        setCurrentPage(1);
       } catch (error) {
         console.error("카테고리 검색 결과 로딩 중 오류 발생", error);
       }
@@ -44,18 +79,18 @@ export default function CasePage() {
     setSearchCategoryQuery("전체");
     const searchCaseByKeyword = async () => {
       try {
-        const cases = await fetchCases();
         const results = searchCases({
           keyword: searchKeywordQuery,
-          cases: cases,
+          cases: allCases,
         });
-        setCases(results);
+        setFilteredCases(results);
+        setCurrentPage(1);
       } catch (error) {
         console.error("검색 결과 로딩 중 오류 발생", error);
       }
     };
     searchCaseByKeyword();
-  }, [searchKeywordQuery]);
+  }, [searchKeywordQuery, allCases]);
 
   return (
     <div>
@@ -73,9 +108,13 @@ export default function CasePage() {
               </div>
             </div>
             {/* 사건카드 */}
-            <CaseList cases={cases} />
+            <CaseList cases={currentCases} />
             {/* 페이지네이션 */}
-            <Pagination maxPage={13} />
+            <Pagination
+              currentPage={currentPage}
+              maxPage={maxPage}
+              pageFunc={handleCurrentPage}
+            />
           </div>
         </div>
       </div>
