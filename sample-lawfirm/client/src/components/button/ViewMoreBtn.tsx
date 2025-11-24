@@ -12,7 +12,7 @@ export default function ViewMoreBtn({
   return (
     <Link href={path}>
       <div
-        className={`border px-8 py-2 sm:px-12 sm:py-[18] md:px-16 md:py-[19.5] text-sm md:text-base lg:text-lg transition-colors duration-300 ${
+        className={`inline-block border px-8 py-2 sm:px-12 sm:py-[18] md:px-16 md:py-[19.5] text-sm md:text-base lg:text-lg transition-colors duration-300 ${
           black
             ? `hover:bg-black hover:text-white`
             : `border-white text-white hover:bg-white hover:text-black`
