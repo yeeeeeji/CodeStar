@@ -14,8 +14,10 @@ export default function CasePage() {
   const [allCases, setAllCases] = useState<CaseSearchResults[]>([]);
   const [filteredCases, setFilteredCases] = useState<CaseSearchResults[]>([]);
   const [currentCases, setCurrentCase] = useState<CaseSearchResults[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [maxPage, setMaxPage] = useState<number>(1);
+  const [pages, setPages] = useState<number[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [startPage, setStartPage] = useState<number>(0);
   const pageSize = 9;
 
   const [searchCategoryQuery, setSearchCategoryQuery] =
@@ -64,7 +66,7 @@ export default function CasePage() {
       try {
         const results =
           searchCategoryQuery === "전체"
-            ? await fetchCases()
+            ? allCases
             : await fetchCasesByCategory(searchCategoryQuery);
         setFilteredCases(results);
         setCurrentPage(1);
@@ -73,7 +75,7 @@ export default function CasePage() {
       }
     };
     searchCasesByCategory();
-  }, [searchCategoryQuery]);
+  }, [searchCategoryQuery, allCases]);
 
   useEffect(() => {
     setSearchCategoryQuery("전체");
@@ -91,6 +93,25 @@ export default function CasePage() {
     };
     searchCaseByKeyword();
   }, [searchKeywordQuery, allCases]);
+
+  useEffect(() => {
+    setMaxPage(Math.ceil(filteredCases.length / pageSize));
+    setStartPage(0);
+  }, [filteredCases]);
+
+  useEffect(() => {
+    setPages(
+      Array.from(
+        { length: Math.min(5, maxPage - startPage) },
+        (_, i) => startPage + i + 1
+      )
+    );
+  }, [filteredCases, maxPage, startPage]);
+
+  useEffect(() => {
+    const startP = Math.floor(((currentPage ?? 0) - 1) / 5) * 5;
+    setStartPage(startP);
+  }, [currentPage]);
 
   return (
     <div>
@@ -113,6 +134,7 @@ export default function CasePage() {
             <Pagination
               currentPage={currentPage}
               maxPage={maxPage}
+              pages={pages}
               pageFunc={handleCurrentPage}
             />
           </div>
