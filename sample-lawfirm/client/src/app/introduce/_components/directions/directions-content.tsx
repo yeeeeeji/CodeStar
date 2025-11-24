@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 export default function DirectionsContent() {
   return (
     <div className="flex justify-between my-[50px]">
       <div className="flex w-[588px]">
-        <div className="w-[102px] h-[102px] border rounded-full mr-[50px]"></div>
+        <ImgCircle imgSrc="/images/map/bus.svg" width={64.4} height={76.51} />
         <div>
           <p className="text-[32px] font-bold mb-[20px]">버스 이용 시</p>
           <div>
@@ -11,9 +13,9 @@ export default function DirectionsContent() {
                 <p className="font-bold">수원시청 정류장 하차</p>
                 <p className="whitespace-pre-line">
                   {`
-                    • 일반버스: 82-1, 85, 92, 720-2 \n
-                    • 직행좌석버스: 3002, 4000 \n
-                    → 하차 후 도보 약 5분 (효원로 3번길방향)
+                    일반버스: 82-1, 85, 92, 720-2 \n
+                    직행좌석버스: 3002, 4000 \n
+                    → 하차 후 도보 약 5분 (효원로 3번길 방향)
                   `}
                 </p>
               </div>
@@ -21,7 +23,7 @@ export default function DirectionsContent() {
                 <p className="font-bold">팔달구청 정류장 하차</p>
                 <p className="whitespace-pre-line">
                   {`
-                    • 일반버스: 13-1, 27, 36\n
+                    일반버스: 13-1, 27, 36\n
                     → 하차 후 효원로 방향 도보 3분
                   `}
                 </p>
@@ -31,7 +33,11 @@ export default function DirectionsContent() {
         </div>
       </div>
       <div className="flex w-[588px]">
-        <div className="w-[102px] h-[102px] border rounded-full mr-[50px]"></div>
+        <ImgCircle
+          imgSrc="/images/map/subway.svg"
+          width={58.07}
+          height={77.23}
+        />
         <div>
           <p className="text-[32px] font-bold mb-[20px]">지하철 이용 시</p>
           <div>
@@ -61,3 +67,17 @@ export default function DirectionsContent() {
     </div>
   );
 }
+
+interface ImgCircleProps {
+  imgSrc: string;
+  width: number;
+  height: number;
+}
+
+const ImgCircle = ({ imgSrc, width, height }: ImgCircleProps) => {
+  return (
+    <div className="relative flex justify-center items-center w-[102px] h-[102px] overflow-hidden rounded-full mr-[50px] bg-gray-100 ">
+      <Image src={imgSrc} alt="오시는 길" width={width} height={height} />
+    </div>
+  );
+};
