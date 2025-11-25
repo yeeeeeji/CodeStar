@@ -63,10 +63,13 @@ export default function StatItem({ title, number, showPlus = false, animate = tr
 
   return (
     <div ref={ref} className='text-center'>
-      <p className='text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-[32px] font-semibold mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-5 2xl:mb-6'>
+      <p className='font-semibold mb-4 md:mb-6' style={{ fontSize: 'clamp(12px, 2vw, 32px)' }}>
         {title}
       </p>
-      <p className='text-xl sm:text-2xl md:text-3xl lg:text-4xl min-[1100px]:text-5xl xl:text-[54px] 2xl:text-[64px] font-bold tracking-[-0.01em]'>
+      <p
+        className='font-bold tracking-[-0.01em] text-blue-600 md:text-black'
+        style={{ fontSize: 'clamp(22px, 4vw, 64px)' }}
+      >
         {currentNumber.toLocaleString()}
         {showPlus && ' +'}
       </p>
