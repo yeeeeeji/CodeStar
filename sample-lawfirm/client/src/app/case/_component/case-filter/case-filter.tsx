@@ -38,41 +38,32 @@ export default function CaseFilter({ searchFunc }: CaseFilter) {
     loadCategories();
   });
 
-  // useEffect(() => {
-  //   const handleClickOutside = (e: MouseEvent) => {
-  //     if (
-  //       dropdownRef.current &&
-  //       !dropdownRef.current.contains(e.target as Node)
-  //     ) {
-  //       setIsOpen(false);
-  //     }
-  //     document.addEventListener("mousedown", handleClickOutside);
-
-  //     return () => {
-  //       document.removeEventListener("mousedown", handleClickOutside);
-  //     };
-  //   };
-  // }, []);
-
   return (
     <div ref={dropdownRef} className="flex w-[114px]">
-      <div className="flex justify-between w-full" onClick={toggleDropdown}>
+      <div
+        className="flex justify-between w-full cursor-pointer"
+        onClick={toggleDropdown}
+      >
         <div className="text-base">{selectedOption}</div>
         <div>
           <ChevronDownIcon className="size-6" />
         </div>
       </div>
       {isOpen && (
-        <div className="absolute w-[108px] mt-10 py-[20] px-[24] border border-[#718096] rounded-[13px] bg-white shadow-md z-10 grid gap-[10]">
+        <div
+          className="absolute w-[108px] mt-10 py-[20] px-[24] border border-[#718096] rounded-[13px] bg-white shadow-md z-10 grid gap-[10]"
+          onMouseLeave={toggleDropdown}
+        >
           {options.map((option) => (
             <div
               key={option}
               onClick={() => selectOption(option)}
-              className={
-                selectedOption === option
-                  ? `text-[#2563EB] font-semibold`
-                  : `text-black`
-              }
+              className={`cursor-pointer
+                ${
+                  selectedOption === option
+                    ? `text-[#2563EB] font-semibold`
+                    : `text-black`
+                }`}
             >
               {option}
             </div>
