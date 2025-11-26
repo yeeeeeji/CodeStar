@@ -8,9 +8,9 @@ export default function DirectionsContent({
   content,
 }: DirectionsContentProps) {
   return (
-    <div className="flex justify-between text-2xl">
-      <div className="w-[83px]">{title}</div>
-      <div className="w-[350px]">{content}</div>
+    <div className="flex justify-between text-lg xl:text-xl 2xl:text-2xl">
+      <div className="w-[83px] flex-shrink-0 2xl:mr-[30px]">{title}</div>
+      <div className="w-full">{content}</div>
     </div>
   );
 }

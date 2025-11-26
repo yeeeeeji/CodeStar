@@ -17,9 +17,9 @@ export default async function CaseSection() {
         <div
           className="
             flex justify-between grid
-            grid-cols-1
-            xl:grid-cols-2 lg:gap-6
-            2xl:grid-cols-3 2xl:gap-6
+            grid-cols-1 gap-6
+            xl:grid-cols-2
+            2xl:grid-cols-3
           "
         >
           {cases.map((c) => (
