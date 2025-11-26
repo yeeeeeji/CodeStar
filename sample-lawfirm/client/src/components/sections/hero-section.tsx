@@ -19,8 +19,8 @@ export default function HeroSection({
   return (
     <div className='w-full flex-shrink-0 relative h-full' style={{ width, height }}>
       <Image src={imageSrc} alt={imageAlt} fill className='object-cover' priority quality={100} />
-      <div className='absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-0'>
-        <div className='w-80 sm:w-96 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1440px]'>{children}</div>
+      <div className='absolute inset-0 flex items-center px-16 md:px-16 lg:px-20'>
+        <div className='w-full max-w-[1440px] mx-auto'>{children}</div>
       </div>
     </div>
   );
