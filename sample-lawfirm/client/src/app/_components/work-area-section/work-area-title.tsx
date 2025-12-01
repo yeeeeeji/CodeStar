@@ -4,7 +4,6 @@ import { BriefcaseIcon } from '@heroicons/react/20/solid';
 interface TitleProps {
   title: string;
   position?: 'left' | 'center' | 'right';
-  fontSize?: number;
   icon?: React.ElementType;
   iconColor?: string;
   textColor?: string;
@@ -13,7 +12,6 @@ interface TitleProps {
 export default function WorkAreaTitle({
   title,
   position = 'left',
-  fontSize = 40,
   icon = BriefcaseIcon,
   iconColor = colors.gray700,
   textColor = '#000000'
@@ -31,16 +29,15 @@ export default function WorkAreaTitle({
   };
 
   const getIcon = (Icon: React.ElementType) => {
-    return <Icon className='size-8' color={iconColor} />;
+    return <Icon className='w-4 h-4 md:w-6 md:h-6 lg:w-[30px] lg:h-[30px]' color={iconColor} />;
   };
 
   return (
     <div className='inline-block'>
-      <div className={`flex ${getSquarePosition()} mb-[20px]`}>{getIcon(icon)}</div>
+      <div className={`flex ${getSquarePosition()} mb-1.5 md:mb-3 lg:mb-5`}>{getIcon(icon)}</div>
       <p
-        className='font-bold'
+        className='font-bold text-[16px] md:text-[28px] lg:text-[40px]'
         style={{
-          fontSize: `${fontSize}px`,
           color: textColor
         }}
       >
