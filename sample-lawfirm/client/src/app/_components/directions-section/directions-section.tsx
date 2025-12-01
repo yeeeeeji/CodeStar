@@ -31,7 +31,6 @@ export default function DirectionsSection() {
           <WorkAreaTitle
             title="오시는 길"
             position="center"
-            fontSize={16}
             icon={BuildingOfficeIcon}
           />
         </div>
