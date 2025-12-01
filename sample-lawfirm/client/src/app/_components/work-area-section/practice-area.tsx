@@ -48,7 +48,7 @@ export default function PracticeArea() {
   }, []);
 
   return (
-    <div className='w-full py-36 px-4 bg-white sm:bg-codestar-dark-navy'>
+    <div className='w-full py-12 sm:py-36 px-4 bg-white sm:bg-codestar-dark-navy'>
       <div className='flex justify-center pb-[30px] sm:pb-15'>
         <WorkAreaTitle title='업무분야' position='center' iconColor='black sm:white' textColor='black sm:white' />
       </div>
@@ -78,13 +78,13 @@ export default function PracticeArea() {
           ))}
         </div>
 
-        <div className='flex justify-center gap-[10px] mt-6'>
+        <div className='flex justify-center gap-[10px] mt-9'>
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentPage === index ? 'bg-white' : 'bg-gray-500'
+                currentPage === index ? 'bg-indicator-active' : 'bg-indicator-inactive'
               }`}
             />
           ))}
