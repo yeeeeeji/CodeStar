@@ -63,7 +63,7 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
         <p
           className='
             text-white
-            text-[14px]
+            text-[16px]
             sm:text-[18px]
             md:text-[16px]
             lg:text-[20px]

@@ -8,6 +8,9 @@
   --codestar-dark-navy: #2d3648;
   --codestar-gray: #bababa;
   --codestar-blue: #2563eb;
+
+  --indicator-active: #718096;
+  --indicator-inactive: #d9d9d9;
 }
 
 @theme inline {
@@ -20,6 +23,9 @@
   --color-codestar-dark-navy: var(--codestar-dark-navy);
   --color-codestar-gray: var(--codestar-gray);
   --color-codestar-blue: var(--codestar-blue);
+
+  --color-indicator-active: var(--indicator-active);
+  --color-indicator-inactive: var(--indicator-inactive);
 }
 
 @media (prefers-color-scheme: dark) {
