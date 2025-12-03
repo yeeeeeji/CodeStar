@@ -23,15 +23,20 @@ export default function Directions() {
 
   return (
     <div id="directions" className="max-w-[1440px] mx-auto mt-[200px]">
-      <div className="text-center my-[50px]">
-        <p className="text-[40px] font-bold tracking-[-0.01em] mb-[20px]">
+      <div className="text-center my-[31px] sm:my-[50px]">
+        <p className="font-bold text-[16px] sm:text-[28px] lg:text-[40px] tracking-[-0.01em] mb-[8px] sm:mb-[20px]">
           오시는 길
         </p>
-        <p>경기도 수원시 팔달구 효원로 03번길 1-25 효원빌딩 7층</p>
+        <p className="text-[12px] sm:text-[18px] lg:text-[24px]">
+          경기도 수원시 팔달구 효원로 03번길 1-25 효원빌딩 7층
+        </p>
       </div>
       <div>
         <div>
-          <div ref={mapContainerRef} className="w-full h-[830px]"></div>
+          <div
+            ref={mapContainerRef}
+            className="w-full h-[196px] mx-[18px] sm:h-[600px] sm:mx-0 lg:h-[830px]"
+          ></div>
           <Script
             strategy="afterInteractive"
             type="text/javascript"

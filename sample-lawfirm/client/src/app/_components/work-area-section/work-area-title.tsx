@@ -45,7 +45,7 @@ export default function WorkAreaTitle({
         {getIcon(icon)}
       </div>
       <div
-        className={`font-bold text-[16px] md:text-[28px] lg:text-[40px] text-${mbTextColor} md:text-${textColor}`}
+        className={`font-bold text-[16px] sm:text-[28px] lg:text-[40px] text-${mbTextColor} sm:text-${textColor}`}
       >
         {title}
       </div>
