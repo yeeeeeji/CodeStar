@@ -36,13 +36,19 @@ export default function CaseCard({
         <div></div>
       )}
       <div
-        className={`px-[70px] py-[75px] border border-codestar-gray justify-items-start grid gap-10 h-[480px] text-[24px]`}
+        className={`
+          border border-codestar-gray justify-items-start grid
+          px-[20px] py-[13px] gap-1
+          sm:px-[70px] sm:py-[75px] sm:h-[480px] sm:gap-10
+        `}
       >
-        <div className="line-clamp-1">
+        <div className="line-clamp-1 text-[12px] sm:text-[24px]">
           [{category}] {title}
         </div>
         <div>
-          <div className="line-clamp-4">{content}</div>
+          <div className="line-clamp-4 text-[10px] sm:text-[24px]">
+            {content}
+          </div>
         </div>
         <ViewMoreBtn path={createDetailURL(pathname, caseId)} black={true} />
       </div>
