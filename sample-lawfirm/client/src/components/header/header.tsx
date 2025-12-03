@@ -76,7 +76,7 @@ export default function Header() {
   // };
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center bg-codestar-dark-navy md:bg-transparent'>
       <div className='relative z-999 mx-6 w-full 2xl:w-[1440px]'>
         {/* 하위 메뉴 바탕 상자 */}
         {/* <div
@@ -86,7 +86,7 @@ export default function Header() {
               : "-translate-y-10 opacity-0 pointer-events-none"
           }`}
         /> */}
-        <div className='absolute flex justify-between h-[96px]' style={{ width: '100%' }}>
+        <div className='md:absolute flex justify-between h-[96px]' style={{ width: '100%' }}>
           <div className='my-auto px-[20px]'>
             <Link href='/'>
               <Image src='/images/logo/logo.svg' alt='logo' width={160} height={38} />
