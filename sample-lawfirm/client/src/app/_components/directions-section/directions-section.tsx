@@ -25,19 +25,19 @@ export default function DirectionsSection() {
   });
 
   return (
-    <div className="flex justify-center">
-      <div className="md:w-[1440px] md:grid md:grid-cols-12">
-        <div className="md:hidden flex justify-center mb-[31px]">
+    <div className="flex justify-center mb-[15px] sm:mb-[40px]">
+      <div className="sm:w-[1440px] sm:grid sm:grid-cols-12">
+        <div className="sm:hidden flex justify-center mb-[31px]">
           <WorkAreaTitle
             title="오시는 길"
             position="center"
             icon={BuildingOfficeIcon}
           />
         </div>
-        <div className="md:order-last col-span-7 relative">
+        <div className="sm:order-last sm:col-span-6 md:col-span-7 relative">
           <div
             ref={mapContainerRef}
-            className="w-full h-full md:min-h-[400px] md:mx-0 min-h-[196px] mx-[18px]"
+            className="w-full h-full sm:min-h-[400px] sm:mx-0 min-h-[196px] mx-[18px]"
           ></div>
           <Script
             strategy="afterInteractive"
@@ -49,20 +49,20 @@ export default function DirectionsSection() {
             }}
           />
         </div>
-        <div className="md:order-first col-span-5 md:px-[70px] md:pt-[70px] md:pb-[54px]">
-          <div className="hidden md:block">
+        <div className="sm:order-first sm:px-[70px] sm:pt-[70px] sm:pb-[54px] sm:col-span-6 md:col-span-5">
+          <div className="hidden sm:block">
             <WorkAreaTitle
               title="오시는 길"
               position="left"
               icon={BuildingOfficeIcon}
             />
           </div>
-          <div className="mx-[22px] mt-[20px] mb-[30px] md:mt-[42px] md:mb-[35px]">
+          <div className="mx-[22px] mt-[20px] mb-[30px] sm:mt-[42px] sm:mb-[35px] sm:mx-0">
             <DirectionsContent
               title="주소"
               content="경기도 수원시 팔달구 효원로 03번길1-25 효원빌딩 7층"
             />
-            <div className="h-[7px] md:h-[25px]" />
+            <div className="h-[7px] sm:h-[25px]" />
             <DirectionsContent title="우편번호" content="05183" />
           </div>
           <div className="hidden md:block">
