@@ -15,38 +15,39 @@ export default function ReservationStep() {
   ];
 
   return (
-    <div className='max-w-[1440px] mx-auto my-25'>
-      <div className='mb-23'>
-        <p className='text-[40px] font-semibold tracking-[-0.01em] mb-[30px]'>상담 신청</p>
-        <p className='text-4xl font-bold tracking-[-0.01em] leading-1.8 mb-4'>
+    <div className='max-w-[1440px] mx-auto my-12 md:my-16 lg:my-25 px-6 md:px-8 2xl:px-0'>
+      <div className='mb-12 md:mb-16 lg:mb-23'>
+        <p className='text-2xl md:text-3xl lg:text-[40px] font-semibold tracking-[-0.01em] mb-4 md:mb-6 lg:mb-[30px]'>
+          상담 신청
+        </p>
+        <p className='text-lg md:text-2xl lg:text-4xl font-bold tracking-[-0.01em] leading-1.8 mb-3 md:mb-4'>
           법무법인 코드별은 의뢰인의 상황을 가장 먼저 이해하는 것에서 출발합니다.
         </p>
-        <p className='text-4xl font-bold tracking-[-0.01em] leading-1.8'>
+        <p className='text-lg md:text-2xl lg:text-4xl font-bold tracking-[-0.01em] leading-1.8'>
           아래 양식을 작성해 주시면 신속히 연락드리겠습니다.
         </p>
       </div>
-      <div className='flex gap-6'>
+      <div className='flex flex-col md:flex-row gap-4 md:gap-6'>
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`flex-1 border border-[#BABABA] py-[75px] px-[50px] ${
-              index !== steps.length - 1 ? 'flex justify-between items-center' : ''
-            }`}
+            className={`flex-1 border border-[#BABABA] py-8 md:py-12 lg:py-[75px] px-6 md:px-8 lg:px-[50px] ${index !== steps.length - 1 ? 'flex justify-between items-center' : ''
+              }`}
           >
-            <div className='space-y-[10px]'>
-              <p className='text-[32px] leading-1.6'>STEP {index + 1}</p>
-              <p className='text-3xl font-bold leading-1.6'>{step.title}</p>
+            <div className='space-y-2 md:space-y-[10px]'>
+              <p className='text-xl md:text-2xl lg:text-[32px] leading-1.6'>STEP {index + 1}</p>
+              <p className='text-2xl md:text-2xl lg:text-3xl font-bold leading-1.6'>{step.title}</p>
               <div>
                 {step.description.map((line, lineIndex) => (
-                  <p key={lineIndex} className='text-2xl leading-1.6'>
+                  <p key={lineIndex} className='text-base md:text-lg lg:text-2xl leading-1.6'>
                     {line}
                   </p>
                 ))}
               </div>
             </div>
             {index !== steps.length - 1 && (
-              <div>
-                <span className='text-gray-500 text-2xl'>»</span>
+              <div className='hidden md:block'>
+                <span className='text-gray-500 text-xl md:text-2xl'>»</span>
               </div>
             )}
           </div>

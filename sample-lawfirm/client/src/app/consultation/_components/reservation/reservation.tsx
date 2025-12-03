@@ -87,17 +87,17 @@ export default function Reservation() {
   };
 
   return (
-    <div className='py-6 md:py-44 bg-codestar-dark-navy px-[30px] md:px-0'>
+    <div className='py-6 md:py-24 lg:py-44 bg-codestar-dark-navy px-[30px] md:px-8 2xl:px-0'>
       <div className='max-w-[1440px] mx-auto'>
         <p className='text-[32px] md:text-[40px] font-bold tracking-[-0.01em] text-left md:text-center text-white mb-[10px] md:mb-27'>
           상담 예약
         </p>
 
-        {/* 모바일 전용 */}
+        {/* 모바일 전용 텍스트 */}
         <div className='block md:hidden text-left text-white text-[20px] leading-relaxed mb-8'>
           <p>법무법인 코드별은 의뢰인의 상황을</p>
           <p>가장 먼저 이해하는 것에서 출발합니다.</p>
-          <p className='mt-2'>아래 양식을 작성해 주시면</p>
+          <p className='mt-4'>아래 양식을 작성해 주시면</p>
           <p>신속히 연락드리겠습니다.</p>
         </div>
 
@@ -138,7 +138,7 @@ export default function Reservation() {
         />
 
         {/* 모바일 */}
-        <div className='flex md:hidden flex-col gap-3 mb-6'>
+        <div className='flex md:hidden flex-col gap-3'>
           <button className='w-full h-9 text-white bg-transparent border-[1.5px] border-white rounded-[5px] text-sm font-medium'>
             약관 자세히보기
           </button>
