@@ -132,7 +132,7 @@ export default function Header() {
         </div>
 
         <button
-          className='md:hidden w-[62px] h-[62px] bg-codestar-dark-navy flex items-center justify-center fixed top-0 right-0 z-30'
+          className='md:hidden w-[62px] h-[62px] bg-codestar-dark-navy flex items-center justify-center absolute top-0 right-0 z-30'
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? (
