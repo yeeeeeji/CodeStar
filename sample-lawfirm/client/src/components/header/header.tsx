@@ -4,67 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-
-const categories = [
-  {
-    id: 'about',
-    name: '법인소개',
-    href: '/introduce',
-    items: [
-      {
-        id: '1',
-        name: '법인소개',
-        href: '#'
-      },
-      {
-        id: '2',
-        name: '법인소개',
-        href: '#'
-      },
-      {
-        id: '3',
-        name: '법인소개',
-        href: '#'
-      }
-    ]
-  },
-  {
-    id: 'cases',
-    name: '업무사례',
-    href: '/case',
-    items: [
-      {
-        id: '4',
-        name: '',
-        href: '#'
-      }
-    ]
-  },
-  {
-    id: 'news',
-    name: '소식/자료',
-    href: '/news',
-    items: [
-      {
-        id: '6',
-        name: '',
-        href: '#'
-      }
-    ]
-  },
-  {
-    id: 'contact',
-    name: '상담신청',
-    href: '/consultation',
-    items: [
-      {
-        id: '7',
-        name: '',
-        href: '#'
-      }
-    ]
-  }
-];
+import { categories } from '@/constants/categories';
 
 export default function Header() {
   // const [open, setOpen] = useState(false);
@@ -89,7 +29,11 @@ export default function Header() {
               : "-translate-y-10 opacity-0 pointer-events-none"
           }`}
         /> */}
-        <div suppressHydrationWarning className='hidden md:absolute md:flex justify-between h-[96px]' style={{ width: '100%' }}>
+        <div
+          suppressHydrationWarning
+          className='hidden md:absolute md:flex justify-between h-[96px]'
+          style={{ width: '100%' }}
+        >
           <div className='my-auto px-[20px]'>
             <Link href='/'>
               <Image src='/images/logo/logo.svg' alt='logo' width={160} height={38} />

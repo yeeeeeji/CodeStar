@@ -87,7 +87,7 @@ export default function Reservation() {
   };
 
   return (
-    <div className='py-6 md:py-24 lg:py-44 bg-codestar-dark-navy px-[30px] md:px-8 2xl:px-0'>
+    <div className='py-[15px] md:py-24 lg:py-44 bg-codestar-dark-navy px-[30px] md:px-8 2xl:px-0'>
       <div className='max-w-[1440px] mx-auto'>
         <p className='text-[32px] md:text-[40px] font-bold tracking-[-0.01em] text-left md:text-center text-white mb-[10px] md:mb-27'>
           상담 예약
@@ -145,8 +145,9 @@ export default function Reservation() {
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className={`w-full h-[45px] text-white rounded-[5px] text-sm font-bold transition-colors ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#3E4899] hover:bg-[#323d7a]'
-              }`}
+            className={`w-full h-[45px] text-white rounded-[5px] text-sm font-bold transition-colors ${
+              isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#3E4899] hover:bg-[#323d7a]'
+            }`}
           >
             {isSubmitting ? '접수 중...' : '상담 접수하기'}
           </button>
@@ -157,8 +158,9 @@ export default function Reservation() {
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className={`px-8 md:px-12 py-3 md:py-4 text-base md:text-[24px] font-bold rounded-[5px] transition-colors ${isSubmitting ? 'bg-gray-400 cursor-not-allowed text-white' : 'bg-white text-black hover:bg-gray-100'
-              }`}
+            className={`px-8 md:px-12 py-3 md:py-4 text-base md:text-[24px] font-bold rounded-[5px] transition-colors ${
+              isSubmitting ? 'bg-gray-400 cursor-not-allowed text-white' : 'bg-white text-black hover:bg-gray-100'
+            }`}
           >
             {isSubmitting ? '접수 중...' : '예약 신청'}
           </button>
@@ -167,8 +169,9 @@ export default function Reservation() {
         {submitMessage && (
           <div className='text-center mt-4 md:mt-6'>
             <p
-              className={`text-sm md:text-[20px] font-medium ${submitMessage.includes('성공') ? 'text-green-400' : 'text-red-400'
-                }`}
+              className={`text-sm md:text-[20px] font-medium ${
+                submitMessage.includes('성공') ? 'text-green-400' : 'text-red-400'
+              }`}
             >
               {submitMessage}
             </p>
