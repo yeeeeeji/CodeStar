@@ -50,7 +50,14 @@ export default function PracticeArea() {
   return (
     <div className='w-full py-12 sm:py-36 px-4 bg-white sm:bg-codestar-dark-navy'>
       <div className='flex justify-center pb-[30px] sm:pb-15'>
-        <WorkAreaTitle title='업무분야' position='center' iconColor='black sm:white' textColor='black sm:white' />
+        <WorkAreaTitle
+          title='업무분야'
+          position='center'
+          textColor='#FFFFFF'
+          iconColor='#FFFFFF'
+          mbTextColor='#000000'
+          mbIconColor='#000000'
+        />
       </div>
 
       <div className='sm:hidden'>
