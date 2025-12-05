@@ -6,10 +6,13 @@ import Breadcrumb from '@/components/layout/breadcrumb';
 
 export default function NewsPage() {
   return (
-    <div>
+    <div className='px-[30px] md:px-0'>
       {/* 모바일 상단 메뉴 */}
-      <div className='block md:hidden px-[30px] pt-6'>
-        <Breadcrumb />
+      <div className='block md:hidden pt-6'>
+        <div className='pb-[15px]'>
+          <Breadcrumb />
+        </div>
+        <p className='text-[32px] font-bold text-codestar-dark-navy'>소식/자료</p>
       </div>
       {/* 배너 */}
       <div className='hidden md:block'>
