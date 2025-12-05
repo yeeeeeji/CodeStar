@@ -6,9 +6,9 @@ import Breadcrumb from '@/components/layout/breadcrumb';
 
 export default function NewsPage() {
   return (
-    <div className='px-[30px] md:px-0'>
+    <div>
       {/* 모바일 상단 메뉴 */}
-      <div className='block md:hidden pt-6'>
+      <div className='block md:hidden pt-6 px-[30px]'>
         <div className='pb-[15px]'>
           <Breadcrumb />
         </div>
@@ -18,12 +18,16 @@ export default function NewsPage() {
       <div className='hidden md:block'>
         <Banner imageAlt='소식/자료 배너' title='소식/자료' imageSrc='/images/banner/news-banner.png' />
       </div>
-      {/* 법인소식 */}
-      <Corporate />
-      {/* 미디어 코드별 */}
-      <MediaCodestar />
-      {/* 뉴스레터 */}
-      <NewsLetter />
+      <div className='px-[30px] md:px-10'>
+        <div className='max-w-[1440px] mx-auto'>
+          {/* 법인소식 */}
+          <Corporate />
+          {/* 미디어 코드별 */}
+          <MediaCodestar />
+          {/* 뉴스레터 */}
+          <NewsLetter />
+        </div>
+      </div>
     </div>
   );
 }

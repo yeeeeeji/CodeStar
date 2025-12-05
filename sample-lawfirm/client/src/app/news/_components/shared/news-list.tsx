@@ -82,8 +82,8 @@ export default function NewsList({ items }: NewsListProps) {
         )}
       </div>
 
-      {/* 데스크톱 */}
-      <div className='hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-[108px]'>
+      {/* 태블릿/데스크탑 */}
+      <div className='hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-[108px]'>
         {items.map((item) => (
           <NewsCard key={item.id} title={item.title} image={item.image} />
         ))}
