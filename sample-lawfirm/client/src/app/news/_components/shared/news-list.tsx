@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import NewsCard from './news-card';
 
 interface NewsItem {
