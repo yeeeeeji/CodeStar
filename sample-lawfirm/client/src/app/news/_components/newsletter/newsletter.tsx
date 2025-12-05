@@ -1,4 +1,3 @@
-// _components/newsletter/newsletter.tsx
 import { fetchNewsletterList } from '@/lib/db/news';
 import NewsletterList from './newsletter-list';
 

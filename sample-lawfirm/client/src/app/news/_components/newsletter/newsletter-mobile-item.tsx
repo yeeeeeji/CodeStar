@@ -1,9 +1,9 @@
-interface NewsletterMobileCardProps {
+interface NewsLetterMobileItemProps {
   title: string;
   date: Date;
 }
 
-export default function NewsletterMobileCard({ title, date }: NewsletterMobileCardProps) {
+export default function NewsLetterMobileItem({ title, date }: NewsLetterMobileItemProps) {
   const isNew = () => {
     const currentDate = new Date();
     const twoWeeksAgo = new Date(currentDate.getTime() - 14 * 24 * 60 * 60 * 1000);
@@ -35,8 +35,6 @@ export default function NewsletterMobileCard({ title, date }: NewsletterMobileCa
           </div>
         )}
       </div>
-
-      {/* 날짜 */}
       <p className='text-[16px] font-light text-[#2563EB]'>{formatDate(date)}</p>
     </div>
   );

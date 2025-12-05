@@ -1,5 +1,5 @@
 import NewsletterItem from './newsletter-item';
-import NewsletterMobileCard from './newsletter-mobile-card';
+import NewsLetterMobileItem from './newsletter-mobile-item';
 
 interface Newsletter {
   id: string;
@@ -27,7 +27,7 @@ export default function NewsletterList({ items }: NewsletterListProps) {
       {/* 모바일 */}
       <div className='md:hidden flex flex-col gap-[10px]'>
         {items.map((item) => (
-          <NewsletterMobileCard key={item.id} title={item.title} date={item.createdAt} />
+          <NewsLetterMobileItem key={item.id} title={item.title} date={item.createdAt} />
         ))}
       </div>
     </div>
