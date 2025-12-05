@@ -14,24 +14,6 @@ interface NewsListProps {
 }
 
 export default function NewsList({ items }: NewsListProps) {
-  const [showArrow, setShowArrow] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = (e: Event) => {
-      const target = e.target as HTMLDivElement;
-      if (target.scrollLeft > 10) {
-        setShowArrow(false);
-      }
-    };
-
-    const scrollContainer = document.querySelector('.news-scroll-container');
-    scrollContainer?.addEventListener('scroll', handleScroll);
-
-    return () => {
-      scrollContainer?.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div className='max-w-[1440px] mx-auto md:my-10'>
       {/* 모바일 */}
