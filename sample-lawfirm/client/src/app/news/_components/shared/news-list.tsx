@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import NewsCard from './news-card';
 
 interface NewsItem {
@@ -14,24 +13,6 @@ interface NewsListProps {
 }
 
 export default function NewsList({ items }: NewsListProps) {
-  const [showArrow, setShowArrow] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = (e: Event) => {
-      const target = e.target as HTMLDivElement;
-      if (target.scrollLeft > 10) {
-        setShowArrow(false);
-      }
-    };
-
-    const scrollContainer = document.querySelector('.news-scroll-container');
-    scrollContainer?.addEventListener('scroll', handleScroll);
-
-    return () => {
-      scrollContainer?.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div className='max-w-[1440px] mx-auto md:my-10'>
       {/* 모바일 */}
@@ -52,34 +33,6 @@ export default function NewsList({ items }: NewsListProps) {
             ))}
           </div>
         </div>
-
-        {/* 화살표 */}
-        {showArrow && (
-          <div className='absolute right-4 pointer-events-none' style={{ top: '87.5px' }}>
-            <svg
-              width='20'
-              height='20'
-              viewBox='0 0 24 24'
-              className='text-white opacity-70 animate-pulse'
-              fill='none'
-            >
-              <path
-                d='M8 18l6-6-6-6'
-                stroke='currentColor'
-                strokeWidth='2.5'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-              <path
-                d='M13 18l6-6-6-6'
-                stroke='currentColor'
-                strokeWidth='2.5'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
-          </div>
-        )}
       </div>
 
       {/* 태블릿/데스크탑 */}
