@@ -7,7 +7,7 @@ export default function ConsultationPage() {
   return (
     <div>
       <div className='block md:hidden px-[30px] pt-6 bg-codestar-dark-navy'>
-        <Breadcrumb textColor='text-white' iconColor='white' />
+        <Breadcrumb textColor='text-white' iconColor='text-white' />
       </div>
       <div className='hidden md:block'>
         <Banner imageAlt='상담신청 배너' title='상담신청' imageSrc='/images/banner/reservation-banner.png' />

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { categories } from '@/constants/categories';
 
@@ -14,7 +13,7 @@ interface BreadcrumbProps {
 export default function Breadcrumb({
   customItems,
   textColor = 'text-codestar-dark-navy',
-  iconColor = 'codestar-dark-navy'
+  iconColor = 'text-codestar-dark-navy'
 }: BreadcrumbProps) {
   const pathname = usePathname();
   const items: Array<{ name: string; href?: string }> = [];
@@ -28,9 +27,7 @@ export default function Breadcrumb({
       items.push({ name: category.name, href: category.href });
 
       if (pathname !== category.href) {
-        const subItem = category.items.find((item) =>
-          item.href !== '#' && pathname.startsWith(item.href)
-        );
+        const subItem = category.items.find((item) => item.href !== '#' && pathname.startsWith(item.href));
 
         if (subItem && subItem.name) {
           items.push({
@@ -54,13 +51,9 @@ export default function Breadcrumb({
         </Link>
         {items.map((item, index) => (
           <div key={index} className='flex items-center gap-2'>
-            <Image
-              src='/icons/chevron-right.svg'
-              alt='>'
-              width={16}
-              height={16}
-              className={`${iconColor}`}
-            />
+            <svg width='16' height='16' viewBox='0 0 24 24' className={`${iconColor}`} fill='none'>
+              <path d='M9 18l6-6-6-6' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+            </svg>
             {item.href ? (
               <Link href={item.href} className={`${textColor}`}>
                 {item.name}
