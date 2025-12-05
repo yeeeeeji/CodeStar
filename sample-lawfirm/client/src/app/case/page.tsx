@@ -9,6 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 import { fetchCases, fetchCasesByCategory } from "@/lib/db/cases/api";
 import { CaseSearchResults } from "@/types/case";
 import { searchCases } from "@/hooks/searchCases";
+import Breadcrumb from "@/components/layout/breadcrumb";
 
 export default function CasePage() {
   const [allCases, setAllCases] = useState<CaseSearchResults[]>([]);
@@ -115,16 +116,32 @@ export default function CasePage() {
 
   return (
     <div>
-      <Banner imageAlt="업무사례 배너" title="업무사례" />
+      <div className="block sm:hidden pt-6 px-[30px]">
+        <div className="pb-[15px]">
+          <Breadcrumb />
+        </div>
+        <p className="text-[32px] font-bold text-codestar-dark-navy">
+          업무사례
+        </p>
+      </div>
+      <div className="hidden sm:block">
+        <Banner imageAlt="업무사례 배너" title="업무사례" />
+      </div>
       <div className="flex justify-center">
-        <div className="w-[1440px]">
+        <div className="w-full sm:w-[1440px]">
           <div>
-            <div className="mt-[109px] mb-[100px] flex justify-between">
-              <div className="flex flex-col justify-between">
+            <div
+              className={`
+                flex
+                mt-[25px] mb-[34px]
+                sm:mt-[109px] sm:mb-[100px] sm:justify-between
+              `}
+            >
+              <div className="hidden sm:block flex flex-col justify-between">
                 <div className="text-[40px] font-bold">업무사례</div>
                 <CaseFilter searchFunc={handleSearchCategoryQuery} />
               </div>
-              <div>
+              <div className="w-full mx-[30px] sm:w-auto sm:mx-0">
                 <SearchBar searchFunc={handleSearchKeywordQuery} />
               </div>
             </div>

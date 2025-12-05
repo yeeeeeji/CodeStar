@@ -9,17 +9,11 @@ import { useEffect, useState, Suspense } from "react";
 interface SearchBarProps {
   searchFunc: (query: string) => void;
   placeholder?: string;
-  formStyle?: string;
-  inputStyle?: string;
-  iconStyle?: string;
 }
 
 function SearchBarContent({
   searchFunc,
   placeholder = "코드별 사건사례를 검색해보세요.",
-  formStyle = "col-span-2 flex justify-between border border-codestar-gray rounded-2xl pr-[15px] 2xl:w-[962px] 2xl:h-full 2xl:mt-0 w-full h-[82px] mt-3",
-  inputStyle = "grow outline-none text-[24px] my-[26px] ml-[25px]",
-  iconStyle = "2xl:size-11 size-9 2xl:my-[26px] my-auto mr-[25px] ml-[15px]",
 }: SearchBarProps) {
   const searchParams = useSearchParams();
   const queryParam = searchParams.get("query") ?? "";
@@ -46,7 +40,14 @@ function SearchBarContent({
   return (
     <Form
       action={""}
-      className={formStyle}
+      className={`
+        w-full border border-codestar-gray rounded-2xl
+        col-span-2 flex justify-between
+        h-[56px] pr-[0px] grow
+        sm:h-[82px] sm:mt-3 sm:pr-[15px] sm:flex-none
+        lg:w-[800px]
+        2xl:w-[962px] 2xl:h-full 2xl:mt-0
+      `}
       onSubmit={(e) => {
         e.preventDefault();
         handleSearch();
@@ -54,7 +55,11 @@ function SearchBarContent({
     >
       <input
         name="query"
-        className={inputStyle}
+        className={`
+          grow outline-none
+          text-[16px] my-[15px] ml-[20px]
+          sm:text-[24px] sm:my-[26px] sm:ml-[25px]
+        `}
         placeholder={placeholder}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
@@ -64,7 +69,12 @@ function SearchBarContent({
       />
       <button type="submit">
         <MagnifyingGlassIcon
-          className={iconStyle}
+          className={`
+            my-auto
+            size-6 mr-[20px]
+            sm:size-9 sm:mr-[25px] sm:ml-[15px]
+            2xl:size-11 2xl:my-[26px]  
+          `}
           color={colors.codestarGray}
           strokeWidth={3}
         />
