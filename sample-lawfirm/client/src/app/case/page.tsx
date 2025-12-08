@@ -116,14 +116,7 @@ export default function CasePage() {
 
   return (
     <div>
-      <div className="block sm:hidden pt-6 px-[30px]">
-        <div className="pb-[15px]">
-          <Breadcrumb />
-        </div>
-        <p className="text-[32px] font-bold text-codestar-dark-navy">
-          업무사례
-        </p>
-      </div>
+      <Breadcrumb title="업무사례" />
       <div className="hidden sm:block">
         <Banner imageAlt="업무사례 배너" title="업무사례" />
       </div>
