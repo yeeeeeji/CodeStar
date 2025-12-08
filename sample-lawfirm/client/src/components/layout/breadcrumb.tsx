@@ -8,6 +8,7 @@ interface BreadcrumbProps {
   customItems?: Array<{ name: string; href?: string }>;
   textColor?: string;
   iconColor?: string;
+  bgColor?: string;
   paddingTop?: number;
   paddingBottom?: number;
   paddingLeft?: number;
@@ -27,6 +28,7 @@ export default function Breadcrumb({
   customItems,
   textColor = "text-codestar-dark-navy",
   iconColor = "text-codestar-dark-navy",
+  bgColor = "white",
   paddingTop = 24,
   paddingBottom = 0,
   paddingLeft = 30,
@@ -38,7 +40,8 @@ export default function Breadcrumb({
   return (
     <div
       className={`
-        block sm:hidden 
+        block sm:hidden
+        bg-${bgColor}
         pt-[${paddingTop}px] 
         pb-[${paddingBottom}px] 
         pl-[${paddingLeft}px] 
