@@ -7,7 +7,13 @@ interface CaseListProps {
 
 export default function CaseList({ cases }: CaseListProps) {
   return (
-    <div className="flex justify-between grid grid-cols-3 gap-6">
+    <div
+      className={`
+        flex grid gap-6
+        grid-cols-1 mx-[30px]
+        sm:justify-between sm:grid-cols-3 sm:mx-0
+      `}
+    >
       {cases.map((c) => (
         <CaseCard
           key={c.id}

@@ -16,7 +16,7 @@ export default function PaginationArrowBtn({
   path = "",
   pageFunc,
 }: PaginationArrowBtnProps) {
-  const iconStyle = "size-5";
+  const iconStyle = "size-3 sm:size-5";
   const disabled = right ? currentPage == maxPage : currentPage == 1;
 
   return (
@@ -25,9 +25,12 @@ export default function PaginationArrowBtn({
       className={disabled ? `pointer-events-none` : ``}
     >
       <div
-        className={`${
-          disabled ? `border-gray-400` : `border-black`
-        } border rounded-full w-[46px] h-[46px] flex items-center justify-center`}
+        className={`
+          ${disabled ? `border-gray-400` : `border-black`}
+          border rounded-full flex items-center justify-center
+          w-[30px] h-[30px]
+          sm:w-[46px] sm:h-[46px]
+        `}
         onClick={() => {
           pageFunc(currentPage + (right ? 1 : -1));
         }}
