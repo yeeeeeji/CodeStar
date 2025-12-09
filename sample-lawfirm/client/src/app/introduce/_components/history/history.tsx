@@ -52,14 +52,15 @@ export default function CompanyHistory() {
 
   return (
     <div className='max-w-[1440px] mx-auto'>
-      <div className='relative w-full h-[400px] rounded-[20px] overflow-hidden'>
+      <div className='relative w-full h-[200px] sm:h-[400px] sm:rounded-[20px] overflow-hidden'>
         <Image src='/images/introduce/history.png' alt='연혁 배경 이미지' fill className='object-cover' quality={100} />
-        <p className='absolute inset-0 flex items-center justify-center text-[40px] font-bold tracking-[-0.01em] text-white'>
+        <p className='absolute inset-0 flex items-center justify-center text-base sm:text-[40px] font-bold tracking-[-0.01em] text-white'>
           연혁
         </p>
       </div>
 
-      <div className='my-30 space-y-25'>
+      {/* 데스크탑 */}
+      <div className='hidden sm:block my-30 space-y-25'>
         {historyData.map((yearData) => (
           <div key={yearData.year} className='flex items-start gap-8'>
             <div className='flex w-[467px] items-center justify-between'>
@@ -75,6 +76,24 @@ export default function CompanyHistory() {
                 </div>
               ))}
             </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 모바일 */}
+      <div className='sm:hidden px-[30px] py-12 space-y-7'>
+        {historyData.map((yearData) => (
+          <div key={yearData.year}>
+            <p className='font-bold tracking-[-0.01em] mb-2.5'>{yearData.year}</p>
+
+            <div className='w-full h-px bg-gray-500 mb-2.5'></div>
+
+            {yearData.events.map((event) => (
+              <div key={`${yearData.year}-${event.month}`} className='flex gap-4'>
+                <p className='text-xs font-bold tracking-[-0.01em] leading-[2]'>{event.month}</p>
+                <p className='text-xs font-medium tracking-[-0.01em] leading-[2]'>{event.description}</p>
+              </div>
+            ))}
           </div>
         ))}
       </div>
