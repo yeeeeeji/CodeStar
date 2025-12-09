@@ -17,9 +17,11 @@ export default function PaginationNumberBtn({
     <div className="flex items-center justify-center">
       <Link
         href={path}
-        className={`text-[22px] ${
-          num == currentPage ? "text-black" : "text-gray-300"
-        }`}
+        className={`
+          text-[14px]
+          sm:text-[22px] 
+          ${num == currentPage ? "text-black" : "text-gray-300"}
+        `}
         onClick={() => {
           pageFunc(num);
         }}

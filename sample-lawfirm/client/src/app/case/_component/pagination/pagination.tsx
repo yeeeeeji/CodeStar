@@ -24,7 +24,7 @@ function PaginationContent({
 
   return (
     <div className="flex justify-center">
-      <div className="flex my-[50px] gap-[44px]">
+      <div className="flex my-[34px] gap-[28px] sm:my-[50px] sm:gap-[44px]">
         <PaginationArrowBtn
           currentPage={currentPage}
           maxPage={maxPage}

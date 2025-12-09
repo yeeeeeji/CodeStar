@@ -126,7 +126,7 @@ export default function CasePage() {
             <div
               className={`
                 flex
-                mt-[25px] mb-[34px]
+                mt-[25px] mb-[24px]
                 sm:mt-[109px] sm:mb-[100px] sm:justify-between
               `}
             >
