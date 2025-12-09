@@ -11,7 +11,7 @@ export default function CaseList({ cases }: CaseListProps) {
       className={`
         flex grid gap-6
         grid-cols-1 mx-[30px]
-        sm:justify-between sm:grid-cols-3 mx-0
+        sm:justify-between sm:grid-cols-3 sm:mx-0
       `}
     >
       {cases.map((c) => (

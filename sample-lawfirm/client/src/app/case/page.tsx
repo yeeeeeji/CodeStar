@@ -121,20 +121,21 @@ export default function CasePage() {
         <Banner imageAlt="업무사례 배너" title="업무사례" />
       </div>
       <div className="flex justify-center">
-        <div className="w-full sm:w-[1440px]">
+        <div className="w-full sm:w-[1440px] mx-auto overflow-x-hidden">
           <div>
             <div
               className={`
-                flex
-                mt-[25px] mb-[24px]
-                sm:mt-[109px] sm:mb-[100px] sm:justify-between
+                mt-[25px] mb-[34px] 
+                sm:flex sm:mt-[109px] sm:mb-[100px] sm:justify-between
               `}
             >
-              <div className="hidden sm:block flex flex-col justify-between">
-                <div className="text-[40px] font-bold">업무사례</div>
+              <div className="sm:flex sm:flex-col sm:justify-between">
+                <div className="hidden sm:block text-[40px] font-bold">
+                  업무사례
+                </div>
                 <CaseFilter searchFunc={handleSearchCategoryQuery} />
               </div>
-              <div className="w-full mx-[30px] sm:w-auto sm:mx-0">
+              <div className="w-full px-[30px] sm:w-auto sm:px-0">
                 <SearchBar searchFunc={handleSearchKeywordQuery} />
               </div>
             </div>
