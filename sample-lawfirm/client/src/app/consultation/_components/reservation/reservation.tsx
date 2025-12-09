@@ -89,9 +89,9 @@ export default function Reservation() {
   return (
     <div className='py-[15px] md:py-24 lg:py-44 bg-codestar-dark-navy px-[30px] md:px-8 2xl:px-0'>
       <div className='max-w-[1440px] mx-auto'>
-        <p className='text-[32px] md:text-[40px] font-bold tracking-[-0.01em] text-left md:text-center text-white mb-[10px] md:mb-27'>
+        {/* <p className='text-[32px] md:text-[40px] font-bold tracking-[-0.01em] text-left md:text-center text-white mb-[10px] md:mb-27'>
           상담 예약
-        </p>
+        </p> */}
 
         {/* 모바일 전용 텍스트 */}
         <div className='block md:hidden text-left text-white text-[20px] leading-relaxed mb-8'>

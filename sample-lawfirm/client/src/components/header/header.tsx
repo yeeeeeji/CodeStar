@@ -71,7 +71,7 @@ export default function Header() {
         {/* 모바일 */}
         <div className='md:hidden flex justify-between items-center h-[62px] bg-white w-full pl-4 relative z-10'>
           <Link href='/'>
-            <Image src='/images/logo/logo-navy.svg' alt='logo' width={120} height={30} />
+            <Image src='/images/logo/logo-navy.png' alt='logo' width={120} height={30} />
           </Link>
         </div>
 
