@@ -1,4 +1,8 @@
-import { DocumentData, QueryDocumentSnapshot } from "firebase/firestore";
+import {
+  DocumentData,
+  QueryDocumentSnapshot,
+  Timestamp,
+} from "firebase/firestore";
 import { Cases } from "./types";
 
 export const caseConverter = {
@@ -11,7 +15,7 @@ export const caseConverter = {
       category: d.category,
       title: d.title,
       content: d.content,
-      createdAt: d.createdAt,
+      createdAt: (d.createdAt as Timestamp).toDate(),
     };
   },
 };

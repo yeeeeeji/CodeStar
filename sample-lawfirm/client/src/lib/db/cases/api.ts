@@ -1,5 +1,7 @@
 import {
   collection,
+  doc,
+  getDoc,
   getDocs,
   limit,
   orderBy,
@@ -38,5 +40,17 @@ export const fetchCasesByCategory = async (category: string) => {
   } catch (error) {
     console.error("카테고리 검색 실패", error);
     return [];
+  }
+};
+
+export const fetchCase = async (id: string) => {
+  const ref = doc(db, "cases", id).withConverter(caseConverter);
+
+  try {
+    const snapshot = await getDoc(ref);
+    return snapshot.data();
+  } catch (error) {
+    console.error("업무사례 상세페이지 조회 실패", error);
+    return undefined;
   }
 };
