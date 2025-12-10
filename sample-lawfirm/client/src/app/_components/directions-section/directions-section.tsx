@@ -34,10 +34,10 @@ export default function DirectionsSection() {
             icon={BuildingOfficeIcon}
           />
         </div>
-        <div className="sm:order-last sm:col-span-6 md:col-span-7 relative">
+        <div className="sm:order-last sm:col-span-6 md:col-span-7 relative mx-[18px] sm:mx-0">
           <div
             ref={mapContainerRef}
-            className="w-full h-full sm:min-h-[400px] sm:mx-0 min-h-[196px] mx-[18px]"
+            className="w-full h-full sm:min-h-[400px] min-h-[196px]"
           ></div>
           <Script
             strategy="afterInteractive"
