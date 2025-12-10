@@ -135,7 +135,7 @@ export default function CasePage() {
                 </div>
                 <CaseFilter searchFunc={handleSearchCategoryQuery} />
               </div>
-              <div className="w-full px-[30px] sm:w-auto sm:px-0">
+              <div className="w-full px-[30px] sm:w-auto sm:px-0 sm:py-[3px]">
                 <SearchBar searchFunc={handleSearchKeywordQuery} />
               </div>
             </div>
