@@ -35,7 +35,7 @@ export default function Directions() {
         <div className="mx-[18px] sm:mx-0">
           <div
             ref={mapContainerRef}
-            className="w-full h-[196px] sm:h-[600px] lg:h-[830px]"
+            className="w-full h-[196px] sm:h-[600px] lg:h-[830px] "
           ></div>
           <Script
             strategy="afterInteractive"
