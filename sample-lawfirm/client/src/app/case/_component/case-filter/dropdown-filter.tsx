@@ -31,7 +31,7 @@ export default function DropdownFilter({
       </div>
       {isOpen && (
         <div
-          className="absolute w-[108px] mt-10 py-[20] px-[24] border border-[#718096] rounded-[13px] bg-white shadow-md z-10 grid gap-[10]"
+          className="absolute w-[108px] mt-4 py-[20px] px-[24px] border border-[#718096] rounded-[13px] bg-white shadow-md z-10 grid gap-[10]"
           onMouseLeave={toggleDropdown}
         >
           {options.map((option) => (
