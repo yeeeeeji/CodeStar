@@ -6,7 +6,7 @@ import { fetchCases } from "@/lib/db/cases/api";
 export default async function CaseSection() {
   const cases = await fetchCases(3);
   return (
-    <div className="flex justify-center my-[180px]">
+    <div className="flex justify-center my-[20px] sm:my-[180px]">
       <div className="w-[720px] md:w-[1000px] 2xl:w-[1440px]">
         <div className="flex justify-center">
           <WorkAreaTitle title="업무사례" position="center" />
