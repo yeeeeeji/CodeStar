@@ -27,7 +27,7 @@ export default async function CaseDetailPage({ params }: CaseDetailProps) {
             {caseResult === undefined ? (
               <div></div>
             ) : (
-              <div className="mt-8 mb-24">
+              <div className="mt-8 mb-24 sm:mt-24">
                 <div>
                   <div className="font-bold text-[28px] sm:text-[48px]">
                     {caseResult.title}
