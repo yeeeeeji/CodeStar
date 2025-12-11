@@ -1,6 +1,5 @@
 "use client";
 
-import { createDetailURL } from "@/lib/url";
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -21,6 +20,7 @@ export default function CaseCard({
   winMark = false,
 }: CaseCardProps) {
   const pathname = usePathname();
+  console.log(pathname);
   return (
     <div className="relative">
       {winMark ? (
@@ -66,7 +66,7 @@ export default function CaseCard({
             {content}
           </div>
         </div>
-        <ViewMoreBtn path={createDetailURL(pathname, caseId)} black={true} />
+        <ViewMoreBtn path={`case/detail/${caseId}`} black={true} />
       </div>
     </div>
   );
