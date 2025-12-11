@@ -37,7 +37,7 @@ export default function WorkAreaTitle({
 
   const getIcon = (Icon: React.ElementType) => {
     return (
-      <Icon className="w-5 h-5 md:w-6 md:h-6 lg:w-[30px] lg:h-[30px] text-[var(--mb-icon)] md:text-[var(--dt-icon)] transition-colors duration-200" />
+      <Icon className="w-6 h-6 lg:w-[30px] lg:h-[30px] text-[var(--mb-icon)] sm:text-[var(--dt-icon)] transition-colors duration-200" />
     );
   };
 
@@ -50,11 +50,13 @@ export default function WorkAreaTitle({
 
   return (
     <div className="inline-block" style={dynamicStyles}>
-      <div className={`flex ${getSquarePosition()} mb-1.5 md:mb-3 lg:mb-5`}>
+      <div
+        className={`flex ${getSquarePosition()} mb-1.5 sm:mb-3 lg:mb-5 hidden sm:block`}
+      >
         {getIcon(icon)}
       </div>
       <div
-        className={`font-bold text-[20px] md:text-[28px] lg:text-[40px] text-[var(--mb-text)] md:text-[var(--dt-text)] transition-colors duration-200`}
+        className={`font-bold text-[24px] sm:text-[28px] lg:text-[40px] text-[var(--mb-text)] sm:text-[var(--dt-text)] transition-colors duration-200`}
       >
         {title}
       </div>
