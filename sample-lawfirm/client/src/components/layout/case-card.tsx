@@ -10,6 +10,9 @@ interface CaseCardProps {
   title: string;
   content: string;
   winMark?: boolean;
+  mbContainerStyle?: string;
+  mbTitleStyle?: string;
+  mbContentStyle?: string;
 }
 
 export default function CaseCard({
@@ -18,6 +21,9 @@ export default function CaseCard({
   title,
   content,
   winMark = false,
+  mbContainerStyle = "px-[20px] py-[40px] gap-3",
+  mbTitleStyle = "text-[20px]",
+  mbContentStyle = "text-[16px] line-clamp-3",
 }: CaseCardProps) {
   const pathname = usePathname();
   console.log(pathname);
@@ -48,17 +54,17 @@ export default function CaseCard({
       <div
         className={`
           border border-codestar-gray justify-items-start grid
-          px-[20px] py-[40px] gap-3
+          ${mbContainerStyle}
           sm:px-[70px] sm:py-[75px] sm:h-[480px] sm:gap-10
         `}
       >
-        <div className="line-clamp-1 text-[20px] sm:text-[24px]">
+        <div className={`line-clamp-1 ${mbTitleStyle} sm:text-[24px]`}>
           [{category}] {title}
         </div>
         <div>
           <div
             className={`
-            line-clamp-3 text-[16px]
+            ${mbContentStyle}
             sm:line-clamp-4 sm:text-[24px]
             
           `}
