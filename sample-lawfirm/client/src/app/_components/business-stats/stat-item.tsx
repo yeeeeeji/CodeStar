@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 interface StatItemProps {
   title: string;
@@ -9,7 +9,12 @@ interface StatItemProps {
   animate?: boolean;
 }
 
-export default function StatItem({ title, number, showPlus = false, animate = true }: StatItemProps) {
+export default function StatItem({
+  title,
+  number,
+  showPlus = false,
+  animate = true,
+}: StatItemProps) {
   const [currentNumber, setCurrentNumber] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -62,16 +67,19 @@ export default function StatItem({ title, number, showPlus = false, animate = tr
   }, [number, animate, isVisible]);
 
   return (
-    <div ref={ref} className='text-center'>
-      <p className='font-semibold mb-4 md:mb-6' style={{ fontSize: 'clamp(12px, 2vw, 32px)' }}>
+    <div ref={ref} className="text-center">
+      <p
+        className="font-semibold mb-3 sm:mb-6"
+        style={{ fontSize: "clamp(16px, 2vw, 32px)" }}
+      >
         {title}
       </p>
       <p
-        className='font-bold tracking-[-0.01em] text-blue-600 md:text-black'
-        style={{ fontSize: 'clamp(22px, 4vw, 64px)' }}
+        className="font-bold tracking-[-0.01em] text-blue-600 sm:text-black"
+        style={{ fontSize: "clamp(24px, 4vw, 64px)" }}
       >
         {currentNumber.toLocaleString()}
-        {showPlus && ' +'}
+        {showPlus && " +"}
       </p>
     </div>
   );

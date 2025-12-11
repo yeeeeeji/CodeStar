@@ -4,7 +4,7 @@ interface PracticeItemProps {
 }
 
 export default function PracticeItem({ title, details }: PracticeItemProps) {
-  const imageFileName = title.replace(/\//g, '');
+  const imageFileName = title.replace(/\//g, "");
 
   return (
     <div
@@ -39,12 +39,14 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
         relative overflow-hidden cursor-pointer
         group
       `}
-      style={{ backgroundImage: `url('/images/practice/${imageFileName}.png')` }}
+      style={{
+        backgroundImage: `url('/images/practice/${imageFileName}.png')`,
+      }}
     >
-      <div className='absolute inset-0 bg-black opacity-70'></div>
+      <div className="absolute inset-0 bg-black opacity-70"></div>
 
       <div
-        className='
+        className="
           absolute inset-0
           border-[3px]
           sm:border-[3px]
@@ -56,14 +58,14 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
           opacity-0 group-hover:opacity-100
           transition-opacity duration-500 ease-in-out
           pointer-events-none
-        '
+        "
       ></div>
 
-      <div className='relative z-10'>
+      <div className="relative z-10">
         <p
-          className='
+          className="
             text-white
-            text-[16px]
+            text-[18px]
             sm:text-[18px]
             md:text-[16px]
             lg:text-[20px]
@@ -76,14 +78,14 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
             lg:pb-3
             xl:pb-4
             2xl:pb-6
-          '
+          "
         >
           {title}
         </p>
         {details.map((detail, index) => (
           <p
             key={index}
-            className='
+            className="
               text-white
               text-[10px]
               sm:text-[11px]
@@ -92,7 +94,7 @@ export default function PracticeItem({ title, details }: PracticeItemProps) {
               xl:text-[14px]
               2xl:text-[24px]
               leading-tight
-            '
+            "
           >
             {detail}
           </p>
