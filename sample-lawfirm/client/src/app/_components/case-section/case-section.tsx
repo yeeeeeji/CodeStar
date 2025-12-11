@@ -29,6 +29,9 @@ export default async function CaseSection() {
               category={c.category}
               title={c.title}
               content={c.content}
+              mbContainerStyle="px-[20px] py-[13px] gap-1"
+              mbTitleStyle="text-[12px]"
+              mbContentStyle="text-[10px] line-clamp-2"
             />
           ))}
         </div>

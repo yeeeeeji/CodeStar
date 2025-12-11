@@ -1,6 +1,5 @@
 "use client";
 
-import { createDetailURL } from "@/lib/url";
 import ViewMoreBtn from "@/components/button/ViewMoreBtn";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -11,6 +10,9 @@ interface CaseCardProps {
   title: string;
   content: string;
   winMark?: boolean;
+  mbContainerStyle?: string;
+  mbTitleStyle?: string;
+  mbContentStyle?: string;
 }
 
 export default function CaseCard({
@@ -19,8 +21,12 @@ export default function CaseCard({
   title,
   content,
   winMark = false,
+  mbContainerStyle = "px-[20px] py-[40px] gap-3",
+  mbTitleStyle = "text-[20px]",
+  mbContentStyle = "text-[16px] line-clamp-3",
 }: CaseCardProps) {
   const pathname = usePathname();
+  console.log(pathname);
   return (
     <div className="relative">
       {winMark ? (
@@ -48,17 +54,17 @@ export default function CaseCard({
       <div
         className={`
           border border-codestar-gray justify-items-start grid
-          px-[20px] py-[40px] gap-3
+          ${mbContainerStyle}
           sm:px-[70px] sm:py-[75px] sm:h-[480px] sm:gap-10
         `}
       >
-        <div className="line-clamp-1 text-[20px] sm:text-[24px]">
+        <div className={`line-clamp-1 ${mbTitleStyle} sm:text-[24px]`}>
           [{category}] {title}
         </div>
         <div>
           <div
             className={`
-            line-clamp-3 text-[16px]
+            ${mbContentStyle}
             sm:line-clamp-4 sm:text-[24px]
             
           `}
@@ -66,7 +72,7 @@ export default function CaseCard({
             {content}
           </div>
         </div>
-        <ViewMoreBtn path={createDetailURL(pathname, caseId)} black={true} />
+        <ViewMoreBtn path={`case/detail/${caseId}`} black={true} />
       </div>
     </div>
   );
