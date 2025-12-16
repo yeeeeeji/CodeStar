@@ -51,7 +51,7 @@ export default function WorkAreaTitle({
   return (
     <div className="inline-block" style={dynamicStyles}>
       <div
-        className={`flex ${getSquarePosition()} mb-1.5 sm:mb-3 lg:mb-5 hidden sm:block`}
+        className={`${getSquarePosition()} mb-1.5 sm:mb-3 lg:mb-5 hidden sm:flex`}
       >
         {getIcon(icon)}
       </div>
